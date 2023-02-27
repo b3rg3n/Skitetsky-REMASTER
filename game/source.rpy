@@ -81,6 +81,7 @@ init:
     define th3 = Character (u' ', color = "#dd9933", what_outlines=[ (1, "#FF8000") ])
     define th4 = Character (u' ', color = "#dd9933", what_outlines=[ (1, "#008080") ])
     define dmn = Character(u'Диман', color="#d2691e")
+    define nvlivt = Character (u'Иветта:', kind=nvl, color = "#ff0000", what_color="FFFFFF",)
     define nvlvas = Character (u'Василиса:', kind=nvl, color = "#FF8000", what_color="FFFFFF",)
     define nvllxrd = Character (u'Вадим:', kind=nvl, color = "#ffffff", what_color="FFFFFF",)
     define nvlbazar = Character (u' ', kind=nvl, color = "#dd9933", what_color="FFFFFF",)
@@ -111,12 +112,15 @@ init:
     define par1 = Character(u'Парниша', color="#bb8282")
     define par2 = Character(u'Парниша', color="#c2b466")
     define par3 = Character(u'Парниша', color="#a48f5d")
-    define ivt = Character('Иветта', color="#FF8000")
+    define ivt = Character('Василиса', color="#FF8000")
     define ivt1 = Character('Иветта', color="#ff0000", what_color="ff0000",)
     define oguzok = Character(u'Огузок', color="#c2b466")
     define zih1 = Character(u'???', color="#c2b466")
     define zih = Character(u'Зихао', color="#c2b466")
     define him = Character(u'Химори', color="#FFC0CB")
+    define foma = Character(u'Фома', color="#c2b466")
+    define mt = Character(u'Мент', color="#bb8282")
+    define mt1 = Character(u'Мент', color="#c2b466")
 ###
 
 ###DISSOLVES
@@ -427,9 +431,88 @@ init:
     image morozko = ("source/morozko.webp")
     image ddoser = ("source/ddoser.png")
     image kreslo = ("source/kreslo.png")
+    image kk = ("source/kamera_kazaha.webp")
+    image kazahspr = im.MatrixColor("source/kazah.png", im.matrix.tint(0.94, 0.82, 1.0))
+    image harchok = im.MatrixColor("source/harchok.png", im.matrix.tint(0.94, 0.82, 1.0))
+    image vent = ("source/mnd_vent_1.png")
+    image portal = ("source/portal.png")
+    image zagruzka = ("source/zagruzka.png")
+    image nport = ("source/nport.webp")
+    image ment = im.MatrixColor("source/ment.png", im.matrix.tint(0.94, 0.82, 1.0))
+    image ment1 = im.MatrixColor("source/ment1.png", im.matrix.tint(0.94, 0.82, 1.0))
+    image bar100 = ("source/bar100.jpg")
+    image aw_afd_dth1_1 = "source/aw_afd_dth1_1.png"
+    image aw_afd_dth1_2 = "source/aw_afd_dth1_2.png"
+    image aw_afd_dth1_3 = "source/aw_afd_dth1_3.png"
+    image aw_afd_ky1_1 = "source/aw_afd_ky1_1.png"
+    image aw_afd_ky1_2 = "source/aw_afd_ky1_2.png"
+    image aw_afd_ky1_3 = "source/aw_afd_ky1_3.png"
+    image himori = ("source/himori.png")
+    image bg aw_f_cor_1 = "source/aw_f_cor_1.png"
 ###
 
 ###ANIMATIONS
+    image aw_afd_ky1:
+        contains:
+            choice:
+                "aw_afd_ky1_1"
+            choice:
+                "aw_afd_ky1_2"
+            choice:
+                "aw_afd_ky1_3"
+            pause 0.15
+            repeat
+        contains:
+            choice:
+                "aw_afd_ky1_1"
+            choice:
+                "aw_afd_ky1_2"
+            choice:
+                "aw_afd_ky1_3"
+            alpha 0.45
+            pause 0.15
+            repeat
+        contains:
+            choice:
+                "aw_afd_ky1_1"
+            choice:
+                "aw_afd_ky1_2"
+            choice:
+                "aw_afd_ky1_3"
+            alpha 0.45
+            pause 0.15
+            repeat
+
+    image aw_afd_dth1:
+        contains:
+            choice:
+                "aw_afd_dth1_1"
+            choice:
+                "aw_afd_dth1_2"
+            choice:
+                "aw_afd_dth1_3"
+            pause 0.15
+            repeat
+        contains:
+            choice:
+                "aw_afd_dth1_1"
+            choice:
+                "aw_afd_dth1_2"
+            choice:
+                "aw_afd_dth1_3"
+            alpha 0.45
+            pause 0.15
+            repeat
+        contains:
+            choice:
+                "aw_afd_dth1_1"
+            choice:
+                "aw_afd_dth1_2"
+            choice:
+                "aw_afd_dth1_3"
+            alpha 0.45
+            pause 0.15
+            repeat
 
     image Fight_Ddv_Dun_png:
         'source/fight_png_01_LW0607.webp' with dissolve

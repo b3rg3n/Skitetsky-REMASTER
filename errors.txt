@@ -2,7 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/menushka.rpy", line 58: Tab characters are not allowed in Ren'Py scripts.
+File "game/scenario.rpy", line 8560: expected statement.
+    Я осталсь думать, чё же делать дальше?
+                    ^
+
+File "game/scenario.rpy", line 8561: expected statement.
+    Порыскав по комнате, нашла люк.
+                       ^
+
+File "game/scenario.rpy", line 8563: expected statement.
+    Вентиляционная шахта, значит...
+                        ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Tue Feb 14 17:34:01 2023
+Sat Feb 25 11:54:24 2023

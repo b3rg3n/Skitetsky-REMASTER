@@ -22,8 +22,6 @@ label start:
 
 label scenariogovna:
     show screen change_say_box_blya
-    $ say_poplil = False
-    $ say_pizdec = False
     scene nmallblur with ed_night_dis
     play ambience rain_out fadein 5
     scene nmall
@@ -31,21 +29,21 @@ label scenariogovna:
     with dissolve2
     "Куда наваливаем?"
     menu:
-        "The Carter Zero: История болезни":
+        "The Carter Zero: Мы ещё полетаем":
             stop ambience fadeout 5
             scene nmallblur
             hide nmall
             hide doshd
             with dissolve2
-            jump skitpologue
-        "The Carter One: С чего всё начиналось":
+            jump atkzero
+        "The Carter One: Постигая основы безумия":
             stop ambience fadeout 5
             scene nmallblur
             hide nmall
             hide doshd
             with dissolve2
             jump aktone
-        "The Carter Two: Попали в просак":
+        "The Carter Two: Планапокалипсис":
             stop ambience fadeout 5
             scene nmallblur
             hide nmall
@@ -66,55 +64,68 @@ label scenariogovna:
             hide doshd
             with dissolve2
             jump aktfour
-        "The Carter Five: Взломать Скитецкого":
+        "The Carter Five: Doppelganger":
             stop ambience fadeout 5
             scene nmallblur
             hide nmall
             hide doshd
             with dissolve2
             jump aktfive
-        "The Carter Six: Frozen Zone":
+        "The Carter Six: Взломать Скитецкого":
             stop ambience fadeout 5
             scene nmallblur
             hide nmall
             hide doshd
             with dissolve2
             jump aktsix
-        "The Carter Seven: After Midnight":
+        "The Carter Seven: Frozen Zone":
             stop ambience fadeout 5
             scene nmallblur
             hide nmall
             hide doshd
             with dissolve2
             jump aktseven
-        "The Carter Eight: Exodus":
+        "The Carter Eight: Eclipse":
+            stop ambience fadeout 5
+            scene nmallblur
+            hide nmall
+            hide doshd
+            with dissolve2
+            jump aktseven
+        "The Carter Nine: After Midnight":
             stop ambience fadeout 5
             scene nmallblur
             hide nmall
             hide doshd
             with dissolve2
             jump akteight
-        "DLC: История одного неудачника":
+        "The Carter Ten: Exodus":
             stop ambience fadeout 5
             scene nmallblur
             hide nmall
             hide doshd
             with dissolve2
-            jump bergenchikdlc
+            jump aktnine
+        "The Carter DLC: After 4DPA":
+            stop ambience fadeout 5
+            scene nmallblur
+            hide nmall
+            hide doshd
+            with dissolve2
+            jump dlc
 
-label skitpologue:
+label atkzero:
     scene black with ed_night_dis
     play music rad
     scene corridor
     $ Aw_Alko("corridor")
     with ed_night_dis
-    show zatemnenie with dissolve2
-    $ MND_Chapter("The Carter Zero:")
-    $ MND_Chapter("История болезни")
-    hide zatemnenie with dissolve2
     nvlbazar "Мягкие,{w=0.2} белые стены{w=0.2}.{w=0.2}.{w=0.2}."
     nvlbazar "Они создают непередоваемое ощущение тяжести."
     nvlbazar "Вся эта параша буквально давит на мозги."
+    nvlbazar "И лишь одна фраза мелькает в мыслях..."
+    nvl clear
+    nvlbazar "Мы ещё полетаем."
     nvl clear
     nvlbazar "А я ведь оказался тут не просто так{w=0.2}.{w=0.2}.{w=0.2}."
     nvlbazar "Стоило лишь один раз отказаться{w=0.2}.{w=0.2}.{w=0.2}."
@@ -175,6 +186,10 @@ label skitpologue:
     stop music fadeout 4
     vchn "При такой обстановке грех не попиздеть,{w=0.2} мазафака."
     "Спародировав пару раз {b}обзорщика намба ван на руси{/b},{w=0.2} Вечный начал свой рассказ опиздохуительных историй."
+    show zatemnenie with dissolve2
+    $ MND_Chapter("The Carter Zero:")
+    $ MND_Chapter("Мы ещё полетаем")
+    hide zatemnenie with dissolve2
     scene black with ed_night_dis
     play music cw fadein 5
     scene nvnight
@@ -324,6 +339,7 @@ label skitpologue:
     zih "Ладно,{w=0.2} давай,{w=0.2} у меня перерыв заканчивается."
     zih "Встретимся позже."
     him "Бывай."
+    play sound door_open
     "И Химори,{w=0.2} окрылённая надеждой,{w=0.2} упархнула в свой кабинет."
     zih "Шахматитстка сбежала{w=0.2}.{w=0.2}.{w=0.2}."
     zih "Ебануться можно{w=0.2}.{w=0.2}.{w=0.2}." with vpunch
@@ -341,10 +357,6 @@ label aktone:
     scene corridor
     $ Aw_Alko("corridor")
     with ed_night_dis
-    show zatemnenie with dissolve2
-    $ MND_Chapter("ATTO UNO:")
-    $ MND_Chapter("С чего всё начиналось...")
-    hide zatemnenie with dissolve2
     nvlbazar "Снова ведут по знакомому корридору{w=0.2}.{w=0.2}.{w=0.2}."
     nvlbazar "Я знаю,{w=0.2} что будет дальше."
     nvlbazar "Всё просто.{w} И всё очень сложно."
@@ -357,15 +369,16 @@ label aktone:
     "Толсто потраливая подметил Доктор."
     vchn "Да как обычно."
     vchn "В одиночке хоть человеком себя почувствовал."
+    stop music fadeout 3
     zih "Ты говорил,{w=0.2} что продолжишь свой рассказ опиздохуительных историй."
     zih "Ну так?" with vpunch
     vchn "Было б ещё что рассказывать."
-    vchn "Нашему <<общему знакомому>> я придумал чёткую предысторию."
-    vchn "Она,{w=0.2} конечно,{w=0.2} кринжовая,{w=0.2} но тем не менее{w=0.2}.{w=0.2}.{w=0.2}."
-    stop music fadeout 3
-    vchn "В одиночке скучновато,{w=0.2} знаете." with vpunch
-    vchn "Ну так вот{w=0.2}.{w=0.2}.{w=0.2}."
+    "С девятой попытки рассказ таки пошёл."
     play music revenge fadein 5
+    show zatemnenie with dissolve2
+    $ MND_Chapter("The Carter One:")
+    $ MND_Chapter("Постигая основы безумия")
+    hide zatemnenie with dissolve2
     scene novoshahtinsk
     show overlay aw_memory_back_1
     with Fade(1.5, 1, 2)
@@ -471,7 +484,7 @@ label aktone:
     zih "Интересно{w=0.2}.{w=0.2}.{w=0.2}."
     zih "Но это же лишь твоя выдумка,{w=0.2} получается?"
     vchn "Именно так." with vpunch
-    vchn "Просто если бы я рассказал,{w=0.2} что это {b}обычный додик из Новошахтинска{/b},{w=0.2} это звучало бы достаточно неказисто."
+    vchn "Просто если бы я,{w=0.2} как тебе изначально, {w=0.2}рассказывал всем,{w=0.2} что это {b}обычный додик из Новошахтинска{/b},{w=0.2} это звучало бы достаточно неказисто."
     vchn "А так -{w} ебать,{w=0.2} тут целая эпопея с происками {b}таинственного бандеровца из Новошахтинска{/b}."
     zih "Тяжко с тобой." with vpunch
     zih "Ну да ладно."
@@ -1741,11 +1754,38 @@ label aktone:
 
 label akttwo:
     scene black with ed_night_dis
+    play music sail fadein 2
+    scene zihao with ed_night_dis
+    zih "Продолжим наш разговор?"
+    vchn "Ты уже во второй раз мне это говоришь."
+    zih "На вопрос ответь." with vpunch
+    vchn "Мне некуда бежать больше."
+    vchn "Так вот..."
+    vchn "Скит подтёр мне маленько память."
+    vchn "Я вообще не помню,{w=0.2} как оказался в Курске."
+    vchn "Причём не помнит и Саня."
+    vchn "Либо я у него просто не спрашивал."
+    zih "Интересно..."
+    vchn "Ну и в итоге дальше всё снова закрутилось необъяснимыми методами..."
+    zih "Тебе не приходило в голову,{w=0.2} что это всё психоделический трип?" with vpunch
+    vchn "Приходило."
+    vchn "Но я за свои 20 лет так и не попробовал наркотики."
+    vchn "Не моё это."
+    zih "Просто мне иногда кажется..."
+    zih "Чуть-{w=0.2}чуть совсем..."
+    zih "Что ты этот бред на ходу сочиняешь." with vpunch
+    vchn "Я тоже хочу в это верить."
+    vchn "Но,{w=0.2} братиш..."
+    stop music fadeout 5
+    vchn "Я всё это видел своими глазами."
+    vchn "На трезвую голову."
+    vchn "Так что..."
+    zih "Ладно,{w=0.2} что там дальше было-{w=0.2}то?"
     play music frosty
     scene sovenok with ed_night_dis
     scene sovenokblur with dissolve2
     $ MND_Chapter("The Carter Two:")
-    $ MND_Chapter("Попали в просак")
+    $ MND_Chapter("Планапокалипсис")
     scene sovenok with dissolve2
     nvl clear
     nvlbazar "Ты говорил -{w=0.2} я слушал."
@@ -2093,15 +2133,15 @@ label akttwo:
     stop sound
     "Оно оглядело комнату."
     brg "Снова я втыкаю в никуда."
-    "Да ну нахуй? {w}Неужели доходить начинает?"
+    "Да ну нахуй? {w=0.2}Неужели доходить начинает?"
     brg "Ща ещё малень поебланю и сяду за написание сюжета."
-    "А,{w} нет."
+    "А,{w=0.2} нет."
     window hide
     pause 1
     brg "Сколько там сигарет осталось?"
-    brg "Надеюсь,{w} что Саня не все спыхал."
+    brg "Надеюсь,{w=0.2} что Саня не все спыхал."
     "Оно лениво посмотрело в пачку."
-    "Там оставалась {w}аж целая одна сигарета."
+    "Там оставалась -{w=0.2} аж целая одна сигарета."
     brg "Надо пойти покурить."
     "И оно двинуло на балкон."
     play sound ssanayadver
@@ -2111,8 +2151,8 @@ label akttwo:
     window hide
     pause 3
     brg "Последняя..."
-    "Оно...{w} Ладно,{w} знаю,{w} заебал с этим Оно..."
-    "Кароче:{w} Берген подкурил ластовую сигу."
+    "Оно...{w} Ладно,{w=0.2} знаю,{w=0.2} заебал с этим Оно..."
+    "Кароче:{w=0.2} Берген подкурил ластовую сигу."
     play sound ciga0
     scene akt1ciga2 with ed_earth_draw
     play sound ciga1
@@ -2122,14 +2162,14 @@ label akttwo:
     play sound kashel
     window hide
     pause 1.4
-    brg "Крепкие,{w} сука..."
+    brg "Крепкие,{w=0.2} сука..."
     scene akt1ciga4 with ed_night_dis
     brg "Пепельница уже почти вся полная..."
     scene akt1ciga3 with ed_night_dis
-    "Пока Берген курил, {w}он думал о сюжете финальной обновы."
-    brg "Если бы это не было бы слишком локльно,{w} можно было бы и в воркшоп..."
+    "Пока Берген курил, {w=0.2}он думал о сюжете финальной обновы."
+    brg "Если бы это не было бы слишком локльно,{w=0.2} можно было бы и в воркшоп..."
     brg "Но..."
-    brg "Похуй.{w} Всё равно я это доделаю."
+    brg "Похуй.{w=0.2} Всё равно я это доделаю."
     brg "Уже скольким обещал."
     window hide
     play sound ciga1
@@ -2148,12 +2188,12 @@ label akttwo:
     window hide
     pause 3
     "На ноуте был открыт Notepad с первыми набросками текста."
-    "Руки уже потянулись к клавиатуре,{w} как..."
+    "Руки уже потянулись к клавиатуре,{w=0.2} как..."
     play sound pda1
     scene act1ciga7 with vpunch
     window hide
     pause 1.5
-    brg "Блять,{w} я очконул..."
+    brg "Блять,{w=0.2} я очконул..."
     "Он проверил уведомления на телефоне."
     "Ему написал старый добрый..."
     vsn "Здарова."
@@ -2161,10 +2201,10 @@ label akttwo:
     vsn "Свободен сегодня?"
     "Ответ не заставил себя долго ждать."
     brg "Ясен хуй."
-    brg "Предлагаешь пойти куда,{w} чтоль?"
+    brg "Предлагаешь пойти куда,{w=0.2} чтоль?"
     play sound pda1
     vsn "Именно."
-    th1 "Бля,{w} надо звук выключить,{w} громко сука."
+    th1 "Бля,{w=0.2} надо звук выключить,{w=0.2} громко сука."
     vsn "Прикатывай до меня."
     vsn "Тебя будет ждать не кислый такой сюрприз."
     brg "Выдвигаюсь."
@@ -2183,10 +2223,9 @@ label akttwo:
     brg "Ладно,{w} похуй."
     window hide
     pause 0.7
-    brg "Че снилось-то хоть?"
+    brg "Че снилось-{w=0.2}то хоть?"
     shv "Хм..."
     "Швилли погрузился в воспоминания."
-    $ say_pizdec = True
     play sound fb
     play music crysis3epilogue fadein 2
     scene roofburn
@@ -2205,7 +2244,7 @@ label akttwo:
         ypos 0.25
         ease 0.5 ypos 0.05
 
-    brg "Саня,{w} стреляй блеать!"
+    brg "Саня,{w=0.2} стреляй блеать!"
     $ _window_hide(dissolve)
 
     play sound vystrel_LW0607
@@ -2487,7 +2526,7 @@ label akttwo:
     pause 1
     stop sound
     "Берген с криком влетел внутрь здания, {w=0.2}в то время когда Саня не мог сосредодочиться и попасть в голову зомбарю."
-    shv "Еблан,{w} ты что делаешь?!"
+    shv "Еблан,{w=0.2} ты что делаешь?!"
     "Швилли полетел за ним."
     $ _window_hide(dissolve)
 
@@ -2514,7 +2553,7 @@ label akttwo:
         ypos -0.25
 
     $ _window_show(dissolve)
-    brg "Прощай...{w} Швилли...{w=0.2} нет, Саня...{w=0.2} увидимся там,{w=0.2} где окажемся."
+    brg "Прощай...{w=0.2} Швилли...{w=0.2} нет, Саня...{w=0.2} увидимся там,{w=0.2} где окажемся."
     $ _window_hide(dissolve)
     hide avtoreblansuka
     play sound gamaz
@@ -4083,18 +4122,59 @@ label akttwo:
     avlm "Нахуй его."
     avlm "Да и ты,{w=0.2} помнитcя,{w=0.2} говорил,{w=0.2} что лето проходил по 500 раз на дню."
     avlm "А я и решил, {w=0.2}что ты в этом ебучем лагере каждый уголок знаешь."
-    brg "Ладно,{w=0.2} пошли."
-    "И они двинули."
-    scene bg ext_playground_day with ed_night_dis
-    show avelimespr with dissolve
+    brg "Сначала дойдём до музклуба."
+    brg "Мертвий Лорд должен ждать меня там."
+    brg "По крайнеё мере, мне так сказал Депеш."
+    avlm "Ты уверен,{w=0.2} что он там?"
+    brg "Нет." with vpunch
+    brg "Но вариантов лучше у меня нет."
+    avlm "Может,{w=0.2} он в старом{nw}"
+    brg "Не может." with vpunch
+    brg "Мы или идёт сначала в музклуб, {w=0.2}или ты просто пойдёшь нахуй." with vpunch
+    "У Авелайма не оставалось выбора."
+    avlm "Веди."
+    play sound door_open
+    scene bg int_musclub_day
+    show avelimespr at right
+    with ed_lap
+    foma "Здарова бандиты." with vpunch
+    brg "И тебе не хворать,{w=0.2} Фома."
+    brg "Какими судьбами ты тут?"
+    foma "Да вот школу,{w=0.2} в которой я работал,{w=0.2} закрыли."
+    foma "А тут вакансия физрука была."
+    foma "Вот я и решил податься в хлебные края."
+    brg "Занимательно."
+    brg "Слушай,{w=0.2} а ты не видел тут Мертвиго Лорду?"
+    foma "Такой патлач и бородач одновременно?" with vpunch
+    brg "Да."
+    "Берген немного орнул с такого точного описания Вадима Морозова."
+    foma "Был недавно."
+    foma "Искал какого-{w=0.2}то типа в белой пятнистой куртке..."
+    foma "Погоди." with vpunch
+    foma "Так это ж получается,{w=0.2} что он тебя искал?"
+    brg "Походу."
+    foma "Он был тут полчаса назад."
+    foma "Сказал,{w=0.2} что отправится к какому-{w=0.2}то старому лагерю."
+    foma "Честно,{w=0.2} я в рот не ебу,{w=0.2} где это."
+    foma "Но он должен быть там."
+    avlm "А я тебе говорил..."
+    brg "Ладно,{w=0.2} бывай,{w=0.2} Фома!" with vpunch
+    foma "Ну как проветритесь,{w=0.2} заходите."
+    "И они двинули по направлению к старому лагерю."
+    "По пути рассматривая окресности."
+    play sound door_open
+    scene bg ext_playground_day
+    show avelimespr
+    with ed_night_dis
     avlm "Это местная спортплощадка?"
     brg "Да."
     brg "А ты обход территории не делал шоль,{w=0.2} как попал сюда?"
     avlm "Нет, {w=0.2}мне похуй было."
     brg "Я тебя понял."
     "И они двинули дальше."
-    scene bg ext_path_sunset with ed_night_dis
-    show avelimespr with dissolve
+    scene bg ext_path_sunset
+    show avelimespr
+    with ed_night_dis
     brg "Я думал,{w=0.2} что будет чуть ближе."
     avlm "Да я тоже так думал."
     brg "Ладно.{w=0.2} Похуй."
@@ -4111,10 +4191,11 @@ label akttwo:
     avlm "Да я уже учуял."
     brg "И кто мог столько насрать..."
     play sound fb
-    scene bg int_clubs_male_day_baza with flash
+    scene bg int_clubs_male_day_baza
     show sheped_grust at right
     show slzombar:
         xpos 0.1
+    with flash
     window hide
     pause 2
     play sound fb
@@ -4130,8 +4211,7 @@ label akttwo:
     scene black with ed_night_dis
     play sound fb
     play music bilbordi fadein 3
-    scene bg ext_path_day with flash
-    scene bg ext_path_day at ed_running_fast
+    scene bg ext_path_day at ed_running_fast with flash
     play sound begtrava
     melles "Прижало-то как,{w=0.2} блять!"
     "Бедная жопка буквально трещала по швам."
@@ -4172,8 +4252,9 @@ label akttwo:
     melles "Кто здесь?"
     "На поляну вышел наш старый знакомый."
     "Далее от его лица."
-    scene bg ext_path2_day_posral with flash
+    scene bg ext_path2_day_posral
     show melles_spr
+    with flash
     shg "Ты ахуел?" with vpunch
     shg "Не,{w=0.2} ну ты внатуре ахуел!!" with vpunch
     shg "Тут я посрать должен был!"
@@ -4283,8 +4364,9 @@ label akttwo:
     scene black with ed_earth_draw
     play sound fb
     play music chrnthme fadein 2
-    scene bg int_catacombs with flash
+    scene bg int_catacombs
     show strelok
+    with flash
     strlk "Защита отключена." with dissolve2
     strlk "Дальше что?"
     bergen1 "Ты не торопись."
@@ -4316,8 +4398,9 @@ label akttwo:
     scene black with ed_night_dis
     play sound fb
     play music lovewooman fadein 2
-    scene bg int_clubs_male_day_baza with flash
-    show sheped with dissolve
+    scene bg int_clubs_male_day_baza
+    show sheped
+    with flash
     shg "Ты смотри!" with dissolve2
     "Шепед показал экран монитора Диману."
     shg "На лагерь прёт целая орава!"
@@ -4439,10 +4522,10 @@ label akttwo:
     lxrd "Старайся глазами найти BERGENа."
     dmn "Хорошо."
     play sound fb
-    scene bg int_clubs_male_day_baza with flash
+    scene bg int_clubs_male_day_baza
     show sheped
     show dlxrd at left
-    with dissolve
+    with flash
     pause 0.5
     play sound pogudeli
     lxrd "Ну, чё тупим?{w=0.6} Всё, погудели." with vpunch
@@ -5827,7 +5910,6 @@ label akt1shahtaending:
     play sound zarevu
     window hide
     pause 3
-    play music hott fadein 3
     show overlay aw_memory_back_1 with dissolve2
     nvl clear
     nvlbazar "Вот так они и отдыхали."
@@ -5840,20 +5922,97 @@ label akt1shahtaending:
     nvl clear
     nvlbazar "Будьте хорошими малолетками и не срите на парты в школе."
     nvl clear
-    stop music fadeout 5
+    play music zp2_main_l
+    scene zihao with ed_night_dis
+    zih "Занимательно..."
+    zih "Это ж надо такое придумать..."
+    vchn "Я тебя понял." with vpunch
+    vchn "Ты мне всё ещё не веришь."
+    vchn "Дай угадаю..."
+    vchn "Ты тут не для помощи?" with vpunch
+    vchn "А вытащить из меня инфу,{w=0.2} да?" with vpunch
+    vchn "Ахаха..."
+    vchn "И чё я сразу об этом не подумал..."
+    vchn "Хуй короче ты теперь получишь." with vpunch
+    vchn "А не реальную сводку событий."
+    vchn "Пидор." with vpunch
+    zih "В карцер его."
+    "И амбалы снова увели Вечного."
+    play sound door_open
+    "После чего в кабинет к Зихао залетет Химори."
     show zatemnenie with dissolve2
-    $ MND_Chapter("Конец второго акта")
+    $ MND_Chapter("От лица Химори:")
+    hide zatemnenie with dissolve2
+    him "Её нашли." with vpunch
+    zih "Да ну нахуй?"
+    zih "Неужели?"
+    him "Именно."
+    him "Сейчас в общей камере сидит."
+    him "Дали успокоительного."
+    him "Буйная ещё больно." with vpunch
+    zih "У меня тут тоже не без проишествий..."
+    zih "Суетолог решил не продолжать свою историю."
+    him "Ты забыл про наши тайные методы?" with vpunch
+    zih "Да ну,{w=0.2} ты гонишь."
+    zih "Он окончательно поплывёт." with vpunch
+    zih "Пока повременим с этим."
+    zih "Может,{w=0.2} сидя в карцере,{w=0.2} он одумается."
+    him "Дело твоё."
+    him "Будут ещё новости -{w} сразу к тебе."
+    zih "Добро." with vpunch
+    play sound door_open
+    "И Зихао, проводив Химори,{w=0.2} начал готовится к очередному приёму..."
+    zih "Как же меня всё заебало..."
+    show zatemnenie with dissolve2
+    $ MND_Chapter("Конец второго картера...")
     hide zatemnenie with dissolve2
     return
 
 label aktthree:
     scene black with ed_night_dis
+    play music myheroine fadein 2
+    scene komnata_seksa with ed_night_dis
+    nvlbazar "Сидя в тёмной комнате,{w=0.2} Вечный думал о вечном."
+    nvlbazar "Амбалы всё хотели вытрясти из него продолжение истории,{w=0.2} но он был непоколебим."
+    nvlbazar "Делать было нечего,{w=0.2} поэтому Вечный решил окунуться в ностальгию."
+    nvl clear
+    nvlbazar "Ему вспомнился 2019 год.{w} Лето."
+    nvlbazar "Тот самый переломный момент в его жизни."
+    nvlbazar "Когда он из затворника стал превращаться в человека."
+    nvl clear
+    nvlvhcn "Жаль никаких наушников тут нет."
+    nvlvhcn "Да и мобилу отжали."
+    nvlvhcn "Так бы послушал сейчас Silverstein..."
+    nvl clear
+    nvlbazar "То самое лето,{w=0.2} в котором было много распитой водяры и выпарено несколько флаконов щелочной жижи 6 мг."
+    nvlbazar "То самое лето,{w=0.2} в котором он познал много нового."
+    nvlbazar "То самое лето,{w=0.2} в начале и середине которого он делал свой прекрасный шедевр про Депеша..."
+    nvl clear
+    nvlbazar "Это всё утрачено."
+    nvlbazar "Однако,{w=0.2} ничего не мешает воспроизвезти в памяти этот фрагмент гораздо детальнее."
+    nvlbazar "Кроме одного."
+    nvl clear
+    aw_mj1 "Мы нашли её." with vpunch
+    him "Отлично."
+    him "В одиночной закрыли?"
+    aw_mj1 "Да."
+    aw_mj1 "Или надо было к суетологу её?"
+    him "Нет,{w=0.2} всё правильно сделали."
+    him "Пока пусть отсидится."
+    him "Потом будем трясти инфу с неё." with vpunch
+    aw_mj1 "Принято."
+    nvlbazar "Голоса за дверью стали отдаляться."
+    nvlbazar "И Вечный вспомнил кое-{w=0.2}что важное."
+    nvlbazar "То, {w=0.2}что поменяло его взгляд на всю операцию в целом."
+    stop music fadeout 3
+    nvl clear
+    "Он снова ударился в рефликсию и продолжил прокручивать в голове прошедшие моменты."
     play music lasttrack fadein 5
     scene ineony
     show overlay aw_memory_back_1
     with Fade(1.5, 1, 2)
     show zatemnenie with dissolve2
-    $ MND_Chapter("ATTO TRE:")
+    $ MND_Chapter("The Carter Three:")
     $ MND_Chapter("iNeoony's Revenge")
     hide zatemnenie with dissolve2
     nvlbazar "Неоня сидел за своим столом."
@@ -7587,9 +7746,126 @@ label aktthree:
     lxrd "Думаешь о том же,{w=0.2} о чём и я?"
     nn "Именно."
     nn "Пизда им." with vpunch
+    nn "Но ты не торопись." with vpunch
+    nn "Ещё нужно кое-что доделать,{w=0.2} дабы быть уверенным в его соглашении."
+    nn "Только впечатлив его,{w=0.2} мы сможем добиться его согласия."
+    nn "Просто так -{w} он не влезет в это дело."
+    nn "Никак." with vpunch
+    lxrd "Я понимаю."
+    lxrd "И что ты предлагаешь?"
+    nn "Я досовершенствую систему клонирования."
+    nn "Результат увидишь сам."
+    lxrd "Всё таки стоит ломануть сейф."
+    lxrd "Похуй уже,{w=0.2} что там может быть заминировано." with vpunch
+    nn "С этим позже."
+    lxrd "Этот человек умеет ломать такие замки."
+    lxrd "Так что..."
+    nn "Да." with vpunch
+    nn "Сначала клоны."
+    lxrd "Я тебя услышал."
     stop music fadeout 5
     show zatemnenie with dissolve2
-    $ MND_Chapter("Конец третьего акта")
+    $ MND_Chapter("От лица Колда:")
+    hide zatemnenie with dissolve2
+    scene black with ed_night_dis
+    play music oni fadein 2
+    scene domext with ed_night_dis
+    "Колд встал и отряхнулся."
+    cld "Сука..." with vpunch
+    "Боль пронзила всё тело в попытке встать."
+    cld "Многолетка..." with vpunch
+    "Скит ебашил по болевым точкам."
+    "На районе его научили драться."
+    "Пускай,{w=0.2} он и не дрался за район..."
+    "Но неумехой он не был."
+    "В итоге он нанёс чисто болевой дамаг Колду."
+    cld "Что б я ещё хоть раз..."
+    cld "Учавствовал в подобном..."
+    "Очко малолетки подпекало."
+    "Но ничего не оставалось,{w=0.2} кроме как..."
+    cld "Осталось дождаться ночи." with vpunch
+    cld "А там и спросим с Вечного."
+    cld "Его план,{w=0.2} конечно,{w=0.2} ахуенный..."
+    cld "Но мне такое не по душе."
+    play sound fb
+    scene coldbuhaet
+    show overlay aw_memory_back_1
+    with flash
+    vchn "Пока Вадимка в толчке -{w} нам нужно разработать план."
+    cld "Что ты предлагаешь?"
+    vchn "Я на хорошем счету у Скита."
+    vchn "Нужно его немного расшатать,{w=0.2} дабы я смог поднять уровень доверия выше,{w=0.2} помогая ему."
+    cld "И как?"
+    vchn "Легко." with vpunch
+    vchn "У Неони в планах создать лабараторию по клонированию типов."
+    vchn "Днк Ракуна у тебя где-{w=0.2}то был."
+    vchn "Вот и сделаешь его клон,{w=0.2} дабы шантажить Скита."
+    vchn "Он про клона знать не будет."
+    vchn "Будет думать,{w=0.2} что это ориг."
+    vchn "И всё!" with vpunch
+    vchn "Дело в шляпе."
+    vchn "Патрон один возьми на всякий."
+    vchn "Не то вторым Скита ваншотнешь."
+    vchn "Убить он тебя не сможет в любом случае."
+    vchn "Подберёшься близко -{w} начинай давить на него."
+    vchn "Дальше будешь импровизировать."
+    cld "Почему я?" with vpunch
+    "Единственный вопрос,{w=0.2} который не давал Колду покоя."
+    vchn "Больше некому." with vpunch
+    "Лишь кратко бросил Вечный,{w=0.2} после чего пафосно ушёл в другую комнату за подиком или чем-{w=0.2}то ещё."
+    cld "Легко сказать..."
+    "Колду ничего не оставалось,{w=0.2} кроме как попробовать провернуть эту афёру."
+    play sound fb
+    scene domext with flash
+    cld "Такая судьба у нас..."
+    cld "Нелёгкая..."
+    cld "Ха." with vpunch
+    "После этих слов,{w=0.2} Колд принялся ждать ночи."
+    "Больше ничего не оставалось делать."
+    show zatemnenie with dissolve2
+    $ MND_Chapter("От лица Василисы:")
+    hide zatemnenie with dissolve2
+    play sound fb
+    scene himori with flash
+    him "И зачем убегала?" with vpunch
+    th2 "Очевидно,{w=0.2} зачем."
+    ivt1 "Подальше от тебя,{w=0.2} тварь." with vpunch
+    him "Ты не принимаешь препараты."
+    vas "Они делают хуже." with vpunch
+    vas "Я уже говорила."
+    him "Да ну?" with vpunch
+    him "Как по мне,{w=0.2} ты начала идти на поправку."
+    ivt1 "АХАХА..." with vpunch
+    him "Но ты снова бросила их пить."
+    vas "Я так не могу уже." with vpunch
+    vas "Мне просто тяжело."
+    vas "Сделай одолжение."
+    ivt1 "Сделай автоназию." with vpunch
+    vas "Благодарны будем обе."
+    him "Законодательство не позволяет."
+    him "Но есть один способ..." with vpunch
+    "В глазах Василисы появилась надежда."
+    him "Но сперва ты мне всё расскажешь." with vpunch
+    window hide
+    play sound2 aw_psy_eff_1
+    stop music 
+    play sound aw_psy_eff_6
+    scene bg aw_f_cor_1
+    show aw_afd_dth1
+    show aw_afd_ky1
+    with flash_fast_red2
+    $ renpy.pause(5, hard=True)
+    stop sound fadeout 20
+    him "Не слушай их."
+    him "Они сделают хуже." with vpunch
+    "Голова Василисы была готова взорваться."
+    "Голоса выметали все мысли."
+    "Пульсация в висках буквально капала на мозги."
+    show blink
+    "Не в силах сопротивляться голосам,{w=0.2} Василиса провалилась во тьму."
+    "И когда всё это закончится?"
+    show zatemnenie with dissolve2
+    $ MND_Chapter("Конец третьего картера...")
     hide zatemnenie with dissolve2
     return
 
@@ -7845,7 +8121,7 @@ label aktfour:
     stop music fadeout 5
     "Эта фраза отдалась эхом в голове Вечного."
     "Причем именно оригинал."
-    "Гоосом Озона."
+    "Голосом Озона."
     "Ну а потом они начали опрокидывать оставшиеся шоты."
     show zatemnenie with dissolve2
     $ MND_Chapter("От лица Димы:")
@@ -8264,11 +8540,425 @@ label aktfour:
     lxrd "Это чё такое, придурок?"
     lxrd "С хера ли клоны такие буйные пошли?"
     lxrd "Он ещё и съебался..."
+    stop music fadeout 5
     nn "Похуй."
     nn "У всех бывают неудачные дни."
     nn "Но у меня остался ещё один сюрприз."
+    window hide
+    show zatemnenie with dissolve2
+    $ MND_Chapter("От лица Иветты:")
+    hide zatemnenie with dissolve2
+    play music vampire
+    scene black with ed_night_dis
+    scene kk with ed_night_dis
+    nvl clear
+    nvlbazar "Она сидела в абсолютных потёмках."
+    nvlbazar "Видны были лишь очертания бункера."
+    nvlbazar "Того самого бункера, что стал её тюрьмой."
+    nvl clear
+    nvlbazar "А всё обострилось после разлуки с самым близким для неё человеком."
+    nvlbazar "Иветта не могла легко этого вынести."
+    nvlbazar "В начале своего заточения она пыталась разъебшить стены и сбежать, но..."
+    nvlbazar "Это же не гипсокартон."
+    nvl clear
+    nvlbazar "Плотные бетонные стены, что поперёк натырканы арматурой, ослабляющей любые радиочастоты."
+    nvlbazar "В общем, даже GSM тут не ловил."
+    nvlbazar "Да и сам бункер находился достаточно глубоко под землёй."
+    nvlbazar "Глубже лабы Казаха."
+    nvl clear
+    nvlbazar "Но - режущая уши тишина не могла длиться вечно."
+    nvlbazar "И следом за открывшейся дверью, в бункер залетает Казах."
+    nvl clear
+    play sound door_open
+    show kazahspr:
+        default subpixel True 
+        parallel:
+            Null(726.0, 754.0)
+            'kazahspr'
+        parallel:
+            xpos -0.3 
+            linear 0.50 xpos 0.25 
+    with Pause(0.60)
+    show kazahspr:
+        xpos 0.25 
+    nn "Успокоилась?"
+    ivt1 "Пошёл на хуй."
+    nn "А ты не меняешься."
+    ivt1 "Где Василиса?"
+    ivt1 "Куда ты её дел?"
+    nn "Спокойнее."
+    nn "Я обещал вам отдельные тела - я своё обещание выполнил."
+    nn "С вас спрос тоже был."
+    nn "Василиса пока свою часть выполняет."
+    nn "Хоть и со скрипом."
+    nn "Ну а ты..."
+    nn "Нет бы по-нормальному..."
+    nn "Опять наши планы срываешь."
+    ivt1 "Пошёл в жопу."
+    ivt1 "Без Василисы я и палец-о-палец не ударю."
+    nn "Ха."
+    nn "Надолго ли тебя так хватит?"
+    ivt1 "Посмотришь."
+    window hide
+    play sound door_open
+    show deadlylxrd:
+        default subpixel True 
+        parallel:
+            Null(726.0, 754.0)
+            'deadlylxrd'
+        parallel:
+            xpos 1.3 
+            linear 0.50 xpos 0.75 
+    with Pause(0.60)
+    show deadlylxrd:
+        xpos 0.75 
+    "В комнату залетает Вадим Морозов."
+    lxrd "Это и есть твой сюрприз?"
+    nn "Нет."
+    nn "Но это очень важный винтик в этом большом механизме."
+    nn "Тебе стоит увидить её в действии."
+    lxrd "Я смотрел записи с камер в клубе."
+    lxrd "Это, видимо, она..."
+    lxrd "Хотя я изначально думал, что это Василиса."
+    nn "Это и есть Василиса."
+    nn "Точнее - её альтер-эго."
+    lxrd "Понял."
+    lxrd "И как ты их разъеденил?"
+    nn "Василису в клона поместил и всё."
+    nn "Наплёл ей про смерть оригинала."
+    nn "Она даже ничего не вспомнила."
+    ivt1 "МРАЗЬ!"
+    window hide
+    play sound hark
+    show harchok:
+        default subpixel True xpos 0.2 
+        parallel:
+            Null(368.0, 411.0)
+            'harchok'
+        parallel:
+            ypos 1.7 
+            linear 0.21 ypos 0.5 xpos 0.2
+    with Pause(0.60)
+    show harchok:
+        pos (0.2, 0.5) 
+    window show
+    "Смачный харчок полетел в ебло Казаху."
+    window hide
+    play sound smehb1
+    hide deadlylxrd
+    show deadlylxrd:
+        default subpixel True xpos 0.75 
+        parallel:
+            Null(500.0, 842.0)
+            'deadlylxrd'
+        parallel:
+            ypos 1.0 xpos 0.75
+            linear 0.80 ypos 1.1 
+        parallel:
+            rotate 0.0 
+            linear 0.13 rotate 180.0 
+            linear 0.14 rotate 0.0 
+            linear 0.18 rotate 90.0 
+            linear 0.21 rotate 270.0 
+            linear 0.14 rotate 0.0 
+    with Pause(0.90)
+    show deadlylxrd:
+        pos (0.75, 1.1) rotate 0.0 
+    hide deadlylxrd
+    show deadlylxrd:
+        default subpixel True xpos 0.75 
+        parallel:
+            Null(500.0, 842.0)
+            'deadlylxrd'
+        parallel:
+            ypos 1.0 xpos 0.75
+            linear 0.80 ypos 1.1
+        parallel:
+            rotate 0.0 
+            linear 0.13 rotate 180.0 
+            linear 0.14 rotate 0.0 
+            linear 0.18 rotate 90.0 
+            linear 0.21 rotate 270.0 
+            linear 0.14 rotate 0.0 
+    with Pause(0.90)
+    show deadlylxrd:
+        pos (0.75, 1.1) rotate 0.0 
+    pause 1
+    "Вадимка чётко гоготнул с этой всей хуеты."
+    window hide
+    show harchok:
+        subpixel True 
+        pos (0.2, 0.5) 
+        linear 0.24 pos (-0.3, 1.0) 
+    with Pause(0.34)
+    show harchok:
+        pos (-0.3, 1.0) 
+    window show
+    "Казах вытер харочк с ебла."
+    nn "Слушай сюда, блядь."
+    nn "У тебя нет выбора - послать нас или помочь."
+    nn "Жизнь твоей <<подруги>> - в твоих руках."
+    lxrd "Тут он прав."
+    lxrd "Так что заканчивай харкаться и давай уже делом займись блеааать."
+    "Натужно протянул Вадимка."
+    ivt1 "Знаете, что?"
+    ivt1 "Идите нахуй оба."
+    ivt1 "Малолетки конченные."
+    "Вадимка и Казах смирили её жгучими взглядами."
+    nn "Ты ещё передумаешь."
+    ivt1 "Идите нахуй. Оба."
+    window hide
+    play sound door_open
+    show kazahspr:
+        subpixel True 
+        ypos 1.0 
+        linear 0.50 ypos 2.0 
+    show deadlylxrd:
+        subpixel True 
+        ypos 1.1 
+        linear 0.50 ypos 2.2 
+    with Pause(0.60)
+    show kazahspr:
+        ypos 2.0 
+    show deadlylxrd:
+        ypos 2.2 
+    window show
+    "И они ушли. Нахуй. Оба."
+    nvl clear
+    nvlivt "Я осталсь думать, чё же делать дальше?"
+    nvlivt "Порыскав по комнате, нашла люк."
+    nvl clear
+    play sound stmetal
+    scene vent with ed_lap
+    nvlivt "Вентиляционная шахта, значит..."
+    nvlivt "Придётся поползать..."
+    nvlivt "Как в старые добрые..."
+    nvl clear
+    window hide
+    pause 2
+    play sound stmetal
+    scene laba with ed_lap
+    th2 "Вот я и на месте."
+    th2 "Осталось только найти выход."
+    window hide
+    pause 2
+    "Иветта заметила странную деревянную дверь."
+    "С подписью ПОСТОРОННИМ ВХОД ВОПСРЕЩЁН БЛЯ."
+    ivt1 "И чё это значит?"
+    "Любопытство взяло верх."
+    play sound door_open
+    play ambience adp fadein 2
+    scene portal with ed_lap
+    "Иветта заглянула в какое-то странное помещение."
+    "Возле странного сооружения была табличка с надписью: <<Портал в Новошахтинск>>."
+    th2 "Попробовать войти?"
+    th2 "И где этот Новошахтинск..."
+    stop music fadeout 6
+    "Но шестое чувство между ног давало понять Иветте, где искать Василису."
+    "Нужно было войти в портал."
+    "Работает ли он вообще?"
+    th2 "Хуй с ним."
+    th2 "Была не была."
+    "После чего Иветта сиганула в портал вперёд ногами нахуй."
+    stop ambience
+    $ renpy.movie_cutscene('source/luntik.webm')
+    window hide
+    play sound trigger
+    scene portal:
+        parallel:
+            zoom 1.05 anchor (48,27)
+            ease 0.10 pos (0, 0)
+            parallel:
+                ease 0.10 pos (30,30)
+                ease 0.10 pos (0, 0)
+                ease 0.10 pos (-25,25)
+                repeat
 
+    show tripsMVWWW777:
+        parallel:
+            zoom 1.05 anchor (48,27)
+            ease 0.10 pos (0, 0)
+            parallel:
+                ease 0.10 pos (30,30)
+                ease 0.10 pos (0, 0)
+                ease 0.10 pos (-25,25)
+                repeat
+    with dissolve
+    pause 3
+    scene zagruzka with ed_alpha_diss_fast
+    pause 1
+    play sound travel
+    pause 1
+    scene nport:
+        parallel:
+            zoom 1.05 anchor (48,27)
+            ease 0.10 pos (0, 0)
+            parallel:
+                ease 0.10 pos (30,30)
+                ease 0.10 pos (0, 0)
+                ease 0.10 pos (-25,25)
+                repeat
 
+    show tripsMVWWW777:
+        parallel:
+            zoom 1.05 anchor (48,27)
+            ease 0.10 pos (0, 0)
+            parallel:
+                ease 0.10 pos (30,30)
+                ease 0.10 pos (0, 0)
+                ease 0.10 pos (-25,25)
+                repeat
+    with dissolve
+    pause 1.8
+    scene nport with ed_alpha_diss_fast
+    th2 "Фух мля..."
+    "Иветта обернулась."
+    scene domext with pushleft
+    ivt1 "Я близко."
+    show zatemnenie with dissolve2
+    $ MND_Chapter("От лица Димы:")
+    hide zatemnenie with dissolve2
+    play music zapad fadein 5
+    scene black with ed_night_dis
+    scene kuhnyanight with ed_night_dis
+    "Зайдя на кухню, Дима узрел ахуенную картину."
+    "Вечный спал за столом, обнимая пустые бутылки."
+    "А в углу комнаты..."
+    "Кхм..."
+    "Вам лучше это увидеть самим."
+    $ renpy.movie_cutscene('source/drochit.webm')
+    "В углу комнаты сидела Василиса."
+    "Голая."
+    "Сидела и наяривала."
+    "Смотря на спящего Вечного."
+    "И лишь единственная мысль проскочила в голове у Скита:"
+    th "Хорошая малолетка..."
+    th "Она напоминает мне ту самую..."
+    th "От которой у меня теперь есть дочь..."
+    "Василиса заметила палящигося Скита."
+    vas "ВЫЙДИ НАХУЙ ОТСЮДА, СУКА!"
+    "От таких криков проснулся Вечный."
+    show bergennorm:
+        default subpixel True 
+        parallel:
+            Null(726.0, 754.0)
+            'bergennorm'
+        parallel:
+            xpos -0.3 
+            linear 0.50 xpos 0.25 
+    with Pause(0.60)
+    show bergennorm:
+        xpos 0.25 
+    vchn "Чё бля происходит?"
+    play sound door_break
+    "Скит плеснул с фильтра воды в чашку, и убежал, попутно попивая водичку свою ебейшую."
+    show zatemnenie with dissolve2
+    $ MND_Chapter("От лица Вечного:")
+    hide zatemnenie with dissolve2
+    scene kuhnyanight
+    show vasilisanight
+    with flash
+    "Василиса уже успела одеться."
+    vchn "Ну и чё это было?"
+    "Она не знала, что и ответить."
+    vas "Иногда мне бывает трудно себя сдерживать."
+    vas "Ты заснул, и..."
+    vchn "Понятно."
+    "Вечный понурил ебалом."
+    "Настроение было парашное."
+    "Всё из-за прерванного сна, где он снова сидел и коддил какой-то SKITETSKY REMASTER."
+    "Хер его знает, что это..."
+    "Но во снах Вечного он сидел и делал это говно."
+    "Игрушка какая-то вроде."
+    stop music fadeout 5
+    vas "Я иду спать."
+    vchn "Иди."
+    window hide
+    play sound door_open
+    show vasilisanight:
+        subpixel True 
+        ypos 1.0 
+        linear 0.50 ypos 2.2 
+    with Pause(0.60)
+    show vasilisanight:
+        ypos 2.2 
+    window show
+    "Вечный остался на кухне один."
+    "Делать было нехуй."
+    window hide
+    play music mvdep fadein 2
+    pause 2
+    "Вечный вспомнил, что он так и не дочитал дневник."
+    "На трезвую голову не пошло."
+    "Но теперь-то он угашен в нулину блеать!"
+    "И можно дочитать."
+    play sound door_open
+    scene domintnight with ed_lap
+    window hide
+    play sound dostal
+    show diary:
+        default subpixel True 
+        parallel:
+            Null(1280.0, 720.0)
+            'diary'
+        parallel:
+            ypos 2.0 
+            linear 0.50 ypos 1.0 
+    with Pause(0.60)
+    show diary:
+        ypos 1.0 
+    nvl clear
+    nvlbazar "Проверив, спят ли Василиса и Скит, вечный взял дневник."
+    nvlbazar "Он лежал на том же месте."
+    nvlvhcn "Она ничего не заметила, видимо."
+    nvlvhcn "Оно и к лучшему."
+    nvl clear
+    hide diary
+    play sound ubralstvol
+    show diary:
+        ypos 0.0
+        ease 0.5 ypos 1.5
+
+    pause 0.6
+    hide diary
+    nvlbazar "Вечный начал читать дальше."
+    nvl clear
+    nvlvas "В один момент я просто потеряла контроль над ситуацией."
+    nvlvas "В том самом лагере были три идиота, которые канифолили мне мозги."
+    nvlvas "Я для них была унтерменьшем."
+    nvl clear
+    nvlvas "Было достаточно грустно наблюдать их нападки."
+    nvlvas "Однако, виду я не подавала."
+    nvlvas "Но есть одно но."
+    nvl clear
+    nvlvas "Недавно я вспомнила, что нас было двое."
+    nvlvas "Да-да, не удивляйтесь."
+    nvl clear
+    nvlvhcn "К кому она обращается блеать?"
+    nvl clear
+    nvlvas "Иветта."
+    nvlvas "Та самая Иветта."
+    nvlvas "Она же - моя тёмная сторона."
+    nvlvas "Имея неподконтрольную ненависть в виде Иветты - можно вырезать целый батальйон."
+    nvl clear
+    nvlvas "Как бы это не звучало, но..."
+    nvlvas "Нечто подобное и произошло после."
+    nvlvas "После очередных подъёбок от этих патау Иветта начала меня буквально упрашивать отдать контроль над телом."
+    nvlvas "Ей было просто больно на всё это смотреть."
+    nvl clear
+    nvlvas "На то, как они со мной обращаются."
+    nvlvas "Вообще с нихуя."
+    nvlvas "Они забили стрелку возле сцены вечером."
+    nvlvas "Чем это закончится было очевидно."
+    nvlvas "И я решилась."
+    nvl clear
+    stop music fadeout 5
+    nvlvas "В самый важный момент я отдала ей контроль."
+    nvlvas "После чего начался пиздец."
+    nvl clear
+    nvlbazar "Вечный буквально визуализировал это всё у себя в голове."
+    nvl clear
+    scene black with ed_night_dis
     play music mosh1 fadein 2
     scene scena_leto
     show sergo1 at right
@@ -8284,7 +8974,7 @@ label aktfour:
     par3 "Теперь ты никуда не денешься!" with vpunch
     par3 "Хоть в нашем гуманном обществе и не принято бить женщин,{w=0.2} сегодня я нарушу {b}закон гор{/b}."
     "Сказал правый парниша,{w=0.2} попутно надевая на пальцы кастет."
-    "Иветта,{w=0.2} почуяв неладное,{w=0.2} дала команду своему {b}альтер-эго{/b}."
+    "Василиса,{w=0.2} почуяв неладное,{w=0.2} дала команду своему {b}альтер-эго{/b}."
     th1 "Твой час настал."
     th1 "Покажи им свю нашу мощь,{w=0.2} {b}подруга{/b}."
     th2 "Я не подведу."
@@ -8613,7 +9303,7 @@ label aktfour:
     "Движения всё ускорились."
     th1 "Ак{w=0.2}-к{w=0.2}-уратне{w=0.2}-е{w=0.2}.{w=0.2}.{w=0.2}."
     th1 "Не марк{w=0.2}-о{w=0.2}-вку чист{w=0.2}-ишь{w=0.2}.{w=0.2}.{w=0.2}."
-    "Пытаясь совладать с языком думала Иветта."
+    "Пытаясь совладать с языком думала Василиса."
     th2 "Сделаем красиво?"
     "Они обе чувствовали кайф от дрочки."
     "Пусть со стороны и выглядит,{w=0.2} что он терпят друг друга из-за невозможности разделиться{w=0.2}.{w=0.2}.{w=0.2}."
@@ -8633,8 +9323,183 @@ label aktfour:
     th2 "Ну да и хуй с ним." with vpunch
     "И аки {b}Виктор Баринов{/b},{w=0.2} {b}Шеф-повар{/b} ресторана {b}Clod Monet{/b}, прикурив цыбару,{w=0.2} сделала глубокую тягу и лишь тихо выдохнула{w=0.2}.{w=0.2}.{w=0.2}."
     $ renpy.movie_cutscene('source/pobeda.webm')
-
-    "Дальше клубак сука"
+    window hide
+    scene black with ed_night_dis
+    scene domintnight with ed_lap
+    "Вечный немного прихуел от этой истории."
+    "Но ведь это не конец всей истории, верно?"
+    "Что же там дальше..."
+    nvl clear
+    nvlvas "После случившегося пришлось скрываться."
+    nvlvas "В один из не самых примечательных дней была намечана стрелка с двумя ментами."
+    nvlvas "Владик говорил, только они смогут помочь."
+    nvlvas "Встреча была намечена в баре."
+    nvl clear
+    "Вечный снова представил себе всё это воочию."
+    window hide
+    scene black with ed_night_dis
+    play music bambino fadein 2
+    scene bar100 with ed_lap
+    nvlvas "Встречу положено было провести Иветте."
+    nvlvas "Всё потому, что она в нужном моменте сможет надавить."
+    nvl clear
+    nvlvas "Не тот случай? Ха."
+    nvlvas "Не для неё."
+    nvlvas "Она не знает такого понятия в принципе."
+    nvlvas "Вот и всё."
+    nvl clear
+    nvlbazar "Наигрывала какая-то олдовая музычка..."
+    nvlbazar "Вокруг Иветты, что потягивала свежий мохито кружились какие-то пьяные додики."
+    nvlbazar "Самый рофлан в том, что они оба решили подкатить к ней."
+    nvlbazar "И оба были бы посланы нахуй, если бы не начали рамсить прямо в баре."
+    nvlbazar "После чего их спешно выдворила охрана."
+    nvl clear
+    nvlbazar "Напиток почти кончался, а мусаров всё нет и нет."
+    nvlbazar "Иветта начинала нервничать."
+    nvlbazar "Отвлечься было просто не на что."
+    nvlbazar "Только если на громких деградантов в противоположной стороне бара."
+    nvl clear
+    nvlbazar "Они обсуждали навар от проделанной ходки."
+    nvlbazar "Скрутить 20 кило медных проводов с заброшенной ковровой фабрики - это, конечно, ахуительно."
+    nvlbazar "Но явно не то, чем можно гордится."
+    nvlbazar "Нет бы на работку пойти..."
+    nvl clear
+    nvlbazar "Да ну, зачем?"
+    nvlbazar "Можно же напиздить с государственной территории немного металла..."
+    nvlbazar "Обжарить, да сдать."
+    nvlbazar "И пробухать всё лаве в ближайшем баре."
+    nvlbazar "Реально дегроды."
+    nvl clear
+    nvlbazar "За размышлениями о пьяных додиках Иветта не заметила, как к ней подсели те самые два мента."
+    nvl clear
+    window hide
+    show ment:
+        default subpixel True 
+        parallel:
+            Null(750.0, 720.0)
+            'ment'
+        parallel:
+            xpos 2.0 
+            linear 0.60 xpos 0.75 
+    show ment1:
+        default subpixel True 
+        parallel:
+            Null(600.0, 720.0)
+            'ment1'
+        parallel:
+            xpos 2.0 
+            linear 0.60 xpos 0.25 
+    with Pause(0.70)
+    show ment:
+        xpos 0.75 
+    show ment1:
+        xpos 0.25 
+    window show
+    mt "Я вас категорически приветствую."
+    "Отсалютовал левый Мент."
+    ivt1 "Нихао."
+    ivt1 "Вы можете помочь с нарастающей проблемой?"
+    "Менты посмотрили друг на друга."
+    "Потом на Иветту."
+    "И сказали:"
+    mt1 "Вполне."
+    mt1 "Хотя это будет трудно."
+    mt1 "Видел я фото того месива, что ты учудила."
+    mt "Балерина прям."
+    "Хохотнул левый Мент."
+    mt "Есть вариант один..."
+    mt "Косить под ненормальную."
+    ivt1 "Чёт не особо вариант..."
+    mt1 "На пожизненное хочешь загреметь?"
+    "Сказал уже правый мент."
+    "Причём одеты были не по форме."
+    "Иветта не смогла разглядеть звание."
+    "А то пришли небось два сержантика и пытаются глазёнками хлопать."
+    "Приободрять."
+    ivt1 "Не особо."
+    "Тихо ответила Иветта."
+    "Надо же драматизма нагнать."
+    mt "Ну так вот."
+    "Продолжил левый."
+    mt "Мы дадим нужные показания."
+    mt "Направим к нужному мозгоправу."
+    mt "Он тебе всё чё хочешь подпишет и припишет."
+    "У Иветты загорелись глаза."
+    "Победа снова так близка."
+    mt "Но у нас есть одно условие."
+    "Глазёнки резко поменяли цвет своего огня."
+    mt "Ты дашь нам в использование своё тело."
+    th1 "Чего блять?"
+    th1 "Это чё за шутки такие у них?"
+    ivt1 "Прикол я оценила."
+    ivt1 "Что делать-то нужно?"
+    mt "А это и не прикол."
+    mt "Вот ему..."
+    "Показал левый на правого Мента."
+    mt "...уже 27 скоро."
+    mt "А он всё ещё бабу не приголубил."
+    "Хохотнул левый Мент."
+    mt1 "Серёг!"
+    "Поспешно решил оправдать своё честное имя правый Мент."
+    mt "Да ладно."
+    mt "Я всё понимаю."
+    mt "Поэтому и предоставлю тебе для этого всё необходимое."
+    th1 "Не соглашайся, слышишь?"
+    th1 "Это наёб!"
+    "Лишь безумолку тараторила Василиса в мыслях Иветты."
+    th2 "У нас с тобой нет выбора."
+    th1 "Выбор есть всегда!"
+    ivt1 "Я согласна."
+    th1 "Ты чё, ебанулась?"
+    th1 "Они же нас трахнут и кинут!"
+    th1 "Бля, да это ребёнку понятно!"
+    th2 "Я тебе ещё раз повторяю."
+    th2 "У нас нет выбора."
+    mt "Тогда пройдёмте."
+    stop music fadeout 5
+    show overlay aw_memory_back_1
+    "И они прыгнули в ментовскую шкоду."
+    "И укатили в надвигающийся рассвет."
+    "На хату левого Мента."
+    "Где и произошёл весь процесс."
+    window hide
+    scene black with ed_night_dis
+    scene nebo with ed_lap
+    play music kartinki
+    nvl clear
+    nvlbazar "<<Серёга>> был неопытен, но вот <<Николай>>..."
+    nvlbazar "Был любителем БДСМ."
+    nvlbazar "Кароче говоря, они конкретно так испытали на прочность ВСЕ отверстия Иветты."
+    nvlbazar "Было больно. Ещё больше - неприятно."
+    nvlbazar "Мерзко было за своё поведение перед Василисой."
+    nvl clear
+    nvlbazar "Которая, кстати, перестала разговаривать с Иветтой."
+    nvlbazar "С концами нахуй."
+    nvlbazar "Просто исчезла из сознания."
+    nvlbazar "Но это на первый взгляд."
+    nvlbazar "Она наблюдала за Иветтой."
+    nvl clear
+    nvlbazar "Последняя, в свою очередь, слилась с суда."
+    nvlbazar "На котором должны были огласить приговор."
+    nvlbazar "Она ушла в подполье с одной единственной целью."
+    nvl clear
+    nvlbazar "Нужно было совершить план мести."
+    nvlbazar "Всё просто - пожарный топорик оружие небольшое, острое и надежное."
+    nvlbazar "Осталось выцепить этих двоих."
+    nvlbazar "И зачем соглашалась только?"
+    nvl clear
+    nvlbazar "Зря доверие Василисы проебала."
+    nvlbazar "Ну ничего. Это ещё можно исправить."
+    nvlbazar "Посмотрим, как вы у меня запляшете."
+    nvl clear
+    nvlbazar "Влад помог с поиском этих двух ментов."
+    nvlbazar "Их ареал обитания - <<карамель>>."
+    nvlbazar "Там, по выходным, они чаще всего и развлекаются."
+    nvlbazar "Осталось только проскочить в випку."
+    nvlbazar "Но у Иветты уже была нужная последовательность действий."
+    nvlbazar "Осталось её воплотить. Да."
+    nvl clear
+    scene black with ed_night_dis
     window hide
     stop music fadeout 4
     $ renpy.pause(5, hard=True)
@@ -8655,13 +9520,13 @@ label aktfour:
     $ renpy.pause(2, hard=True)
     lis "Нормально ебашит?!" with hpunch
     "Спросила меня одна из посетительниц,{w=0.2} когда я таки дошла до бара,{w=0.2} намекнув бармену на повторение употребленного ранее."
-    ivt "Улёт!" with vpunch
+    ivt1 "Улёт!" with vpunch
     "Она довольно улыбнулась мне,{w=0.2} принявшись потягивать коктейль."
     "Я же —{w} взялась заливать в себя пойло,{w=0.2} что пила до этого."
     play sound na_popei
     lis "Эй,{w=0.2} подруга,{w=0.2} не хочешь немного{w=0.2}.{w=0.2}.{w=0.2}."  with flash_fast2
     "Шлепком по заду,{w=0.2} отвлекла меня всё та же девушка,{w=0.2} в конце своей реплики прикрыв одну своих ноздрей пальцем."
-    ivt "После {b}«этого»{/b} меня распирает...{w} Если ты понимаешь." with dissolve
+    ivt1 "После {b}«этого»{/b} меня распирает...{w} Если ты понимаешь." with dissolve
     lis "Меня тоже."
     "Прошептала она горячо мне на ухо."
     "Я обняла ее за плечи и,{w=0.2} поднявшись со стула —{w} пошла следом за ней в туалетную комнату."
@@ -8672,12 +9537,12 @@ label aktfour:
     $ Aw_Alko("bg aw_club_f")
     lis "Нормас{w=0.2}.{w=0.2}.{w=0.2}." with dissolve
     "Только и проговорила {b}«она»{/b},{w=0.2} когда мы вышли вновь в зал."
-    ivt "Повторим?"
+    ivt1 "Повторим?"
     lis "Позже,{w=0.2} дорогуша."
     "Она принялась пританцовывать."
     lis "Как тебе музло?!" with hpunch
     "Ее стеклянные глаза уже не могли фокусироваться на мне,{w=0.2} из-за чего хаотично бегали вокруг,{w=0.2} пытаясь зацепиться за моё лицо,{w=0.2} которое,{w=0.2} по всей видимости,{w=0.2} у нее расшатывалось в такт музыке."
-    ivt "Улёт!" with vpunch
+    ivt1 "Улёт!" with vpunch
     "Ответила я и она,{w=0.2} с глупой улыбкой и смехом —{w} удалилась вглубь зала,{w=0.2} а я,{w=0.2} в свою очередь, {w=0.2}вернулась к барной стойке."
     window hide
     stop music fadeout 6
@@ -8691,10 +9556,10 @@ label aktfour:
     "Спустя время —{w} я оторвалась от выпивки,{w=0.2} напоследок закинув в себя горсть обезболивающего и заливая его тумблером виски,{w=0.2} выбрасывая остаток денег на барную стойку и уходя от нее в приватный коридор,{w=0.2} в который,{w=0.2} пару минут назад,{w=0.2} прошли {b}«знакомые лица»{/b}." with dissolve
     aw_mj3 "Вы к кому?" with fade2
     "Спросил меня крупный парень,{w=0.2} стоящий на входе в «приватку»."
-    ivt "Двое мужчин,{w=0.2} что пару минут назад зашли{w=0.2}.{w=0.2}.{w=0.2}."
+    ivt1 "Двое мужчин,{w=0.2} что пару минут назад зашли{w=0.2}.{w=0.2}.{w=0.2}."
     aw_mj3 "Комната?"
-    ivt "Не знаю.{w} Но они тут частые гости.{w} Если не трудно —{w} можете сами у них спросить."
-    ivt "Скажите,{w=0.2} что к ним пришла {b}«балерина»{/b}."
+    ivt1 "Не знаю.{w} Но они тут частые гости.{w} Если не трудно —{w} можете сами у них спросить."
+    ivt1 "Скажите,{w=0.2} что к ним пришла {b}«балерина»{/b}."
     aw_mj3 "Колян,{w=0.2} подойди." with vpunch
     "Второй,{w=0.2} не менее крупный парень,{w=0.2} отошел от лесенки,{w=0.2} что вела в служебные помещения."
     aw_mj3 "Погляди пока за этой."
@@ -8707,27 +9572,30 @@ label aktfour:
     window hide
     scene black with fade3
     play sound door_open
-    scene bg aw_private_r_1 with ed_lap
+    scene bg aw_private_r_1
+    show ment at right
+    show ment1 at left
+    with ed_lap
     aw_mj1 "Какие лица,{w=0.2} ха-ха!{w} Серёг,{w=0.2} узнаешь?" with vpunch
     aw_mj2 "Узнаю.{w} Трудно забыть такой{w=0.2}.{w=0.2}.{w=0.2}.{w} Такие красивые губы."
     aw_mj2 "И с чем на этот раз,{w=0.2} {b}«балерина»{/b}?"
-    ivt "Нужна помощь." with vpunch
+    ivt1 "Нужна помощь." with vpunch
     aw_mj1 "А чё за помощь то,{w=0.2} девонька?"
     aw_mj1 "Ты,{w=0.2} вроде как,{w=0.2} в прошлый раз кинула наше {b}«предприятие»{/b}."
     aw_mj2 "За пригласительным не явилась.{w} А людей мы уже оповестили.{w} Где надо —{w} словечко замолвили.{w} Всё для вас устроили,{w=0.2} дамочка,{w=0.2} людей подняли нужных,{w=0.2} а вы же что?{w} Так дела не делаются."
-    ivt "Возникла пара проблем.{w} Не до этого было."
+    ivt1 "Возникла пара проблем.{w} Не до этого было."
     aw_mj2 "Не красиво.{w} Очень не красиво{w=0.2}.{w=0.2}.{w=0.2}." with vpunch
-    ivt "Мы можем обсудить и это тоже.{w} Думаю —{w} я придумаю,{w=0.2} как загладить {b}«свою вину»{/b}."
+    ivt1 "Мы можем обсудить и это тоже.{w} Думаю —{w} я придумаю,{w=0.2} как загладить {b}«свою вину»{/b}."
     aw_mj1 "Прикрой дверь,{w=0.2} девонька.{w} Да на замочек.{w} Там и {b}«подумаем»{/b}."
     "Я лишь улыбнулась,{w=0.2} не отворачиваясь нащупав дверной замок и защелкнув его."
     aw_mj2 "Проходи.{w} Водочки выпьем."
     "Жестом один из мужчин указал на диван,{w=0.2} вместе с этим опрокидывая в себя стопку водки."
-    ivt "Зачем эти излишества." with vpunch
+    ivt1 "Зачем эти излишества." with vpunch
     "Скинув кроссовки,{w=0.2} я стянула с себя штаны,{w=0.2} откидывая их ногой в сторону,{w=0.2} после чего —{w} избавилась и от толстовки."
     aw_mj1 "Еп...{w} Эффективно и быстро,{w=0.2} согласись,{w=0.2} Серёг?" with vpunch
     aw_mj2 "Точно что." with vpunch
     aw_mj1 "А чего эт за обвязки?{w} Новые {b}«штуки»{/b} хочешь попробовать?"
-    ivt "Это?"
+    ivt1 "Это?"
     "Я указала на бинт,{w=0.2} которым была обмотана с торса до груди,{w=0.2} прикрывая шрам на животе и грудь."
     "А за спиной —{w} плотно держал топор,{w=0.2} спрятанный от любопытных глаз."
     ivt "Да.{w} Новые штуки." with vpunch
@@ -8736,7 +9604,7 @@ label aktfour:
     stop music fadeout 4
     "Облизнувшись начал один,{w=0.2} вытирая руки и рот шелковым полотенцем,{w=0.2} после подымаясь с места."
     play sound aw_shut_up_and_bleed_snd
-    ivt "Я тоже всё помню." with vpunch
+    ivt1 "Я тоже всё помню." with vpunch
     "Процедила я,{w=0.2} глядя исподлобья на достаточно приблизившегося ублюдка,{w=0.2} выводя правую руку с топором из-за спины."
     window hide
     stop sound fadeout 1
@@ -8810,16 +9678,16 @@ label aktfour:
     aw_mj2 "В-{w=0.2}в-{w=0.2}вы{w=0.2}ы{w=0.2}.{w=0.2}.{w=0.2}."
     "Давясь кровавым кашлем,{w=0.2} попытался сказать он."
     aw_mj2 "В-{w=0.2}в-{w=0.2}все{w=0.2}.{w=0.2}.{w=0.2}.{w} Обо вс{w=0.2}-ё{w=0.2}-ём{w=0.2}.{w=0.2}.{w=0.2}.{w} Можно дог{w=0.2}.{w=0.2}. {w}Договорится{w=0.2}.{w=0.2}.{w=0.2}."
-    ivt "Ложись." with vpunch
+    ivt1 "Ложись." with vpunch
     "Я кивнула на диван у стены."
     aw_mj2 "Ч-{w=0.2}что?" with vpunch
-    ivt "Ложись." with vpunch
+    ivt1 "Ложись." with vpunch
     "Тот,{w=0.2} судорожно кивая,{w=0.2} перевернулся и,{w=0.2} неуклюже и со стонами,{w=0.2} принялся заползать на диванчик."
     play sound aw_knife_slash_3
     "Одев на руку пакет,{w=0.2} что лежал в кофе,{w=0.2} я подошла к нему и,{w=0.2} взяв за {b}«хер»{/b} -{w} натянула его вверх,{w=0.2} свободной рукой взмахивая топором." with flash_fast_red2
-    ivt "Как по маслу.{w} Даже смачивать не пришлось."
+    ivt1 "Как по маслу.{w} Даже смачивать не пришлось."
     "Процедила я,{w=0.2} склонившись над ним и запихав его достоинство ему же в глотку."
-    ivt "Глубже.{w} Глотай,{w=0.2} сучка." with vpunch
+    ivt1 "Глубже.{w} Глотай,{w=0.2} сучка." with vpunch
     "Перехватив топор,{w=0.2} я просунула его рукоять в рот насильника,{w=0.2} тем самым {b}«проталкивая»{/b} отрубленный орган глубже в его глотку."
     "Его глаза — {w}выдавали в нём страх."
     "Они горели мольбой и криком о помощи."
@@ -8833,7 +9701,7 @@ label aktfour:
     $ Aw_Alko("black")
     "Поэтому —{w} я лишь перевернула его на живот, {w=0.2}закрыв голову подушкой,{w=0.2} чтобы от от вида его разбитой черепушки не сблевать прямо на месте." with dissolve
     stop music fadeout 3
-    ivt "А теперь —{w} я сладко кончу." with vpunch
+    ivt1 "А теперь —{w} я сладко кончу." with vpunch
     window hide
     play sound aw_kill_snd
     scene bg aw_private_ms_end
@@ -8843,11 +9711,138 @@ label aktfour:
     $ renpy.pause(2, hard=True)
     scene black with fade3
     $ renpy.pause(5, hard=True)
-    $ renpy.music.set_volume(0.3)
-    "222"
+    $ renpy.music.set_volume(0.6)
+    play music rmdoshd fadein 2
+    play ambience rain_out fadein 2
+    scene nebo
+    show doshd
+    with ed_night_dis
+    nvl clear
+    nvlbazar "Иветта смотрела на ночное небо."
+    nvlbazar "Она была уже вся мокрая."
+    nvlbazar "Ливень всё хуярил и хуярил."
+    nvlbazar "А настроения по-прежнему не было."
+    nvl clear
+    nvlivt "Всё ещё обижаешься?"
+    nvl clear
+    nvlbazar "Вопрос, казалось бы, ушёл в пустоту."
+    nvl clear
+    nvlvas "Было б на что."
+    nvlvas "Ты просто конченная."
+    nvlvas "Тебе проблем мало было?"
+    nvl clear
+    nvlivt "Прости."
+    nvl clear
+    nvlvas "Не прощу."
+    nvlvas "Ты мне такая нахуй не нужна."
+    nvlvas "Бля, я бы полжизни отдала за своё, отдельное тело."
+    nvlvas "И чтоб забыть тебя нахуй."
+    nvl clear
+    nvlivt "Перестань."
+    nvl clear
+    nvlvas "Не перестану."
+    nvlvas "Я всё ещё тебя ненавижу."
+    nvlvas "И когда ты только появилась?"
+    nvl clear
+    nvlivt "Я и есть твой защитный механизм."
+    nvlivt "Без меня - ты сдохнешь."
+    nvl clear
+    nvlvas "Можем проверить."
+    nvlivt "И как же?"
+    nvl clear
+    nvlvas "Херово ты Влада слушала."
+    nvlvas "Он ещё советовал в iGandone LLC обратиться с этим вопросом."
+    nvlvas "А ты пошла к мусорам."
+    nvlvas "И что в итоге?"
+    nvlvas "Никакого нам с тобой помилования..."
+    nvl clear
+    nvlivt "Не хотела я его слушать."
+    nvlivt "Он безответно влюблён в тебя."
+    nvlivt "Не в меня."
+    nvlivt "Лично я ему ничем не обязана."
+    nvl clear
+    nvlvas "Ха."
+    nvlvas "Твою жопу он тоже спасал."
+    nvlvas "И не раз."
+    nvl clear
+    nvlivt "Вместе с твоей, не забывай."
+    nvl clear
+    nvlvas "Так вот мне бы отдельную от тебя жопу."
+    nvlvas "Да чтоб туда всякие мерзопакосные менты свои огрызки не сували."
+    nvlvas "Улавливаешь суть?"
+    nvl clear
+    nvlivt "Значит, идём к айгандону?"
+    nvlvas "Да хоть сейчас."
+    nvl clear
+    nvlbazar "И они отправились в офис iGandone LLC, который находился неподалёку."
+    nvl clear
+    stop ambience fadeout 5
+    scene black with ed_night_dis
+    nvlbazar "Они шли пешком, дабы проветрить голову."
+    nvlbazar "И заболеть нахуй."
+    nvlbazar "Ведь на улице ливень."
+    nvlbazar "Но они всегда любили гулять под дождём."
+    nvl clear
+    nvlivt "Ты действительно хочешь отделиться?"
+    nvl clear
+    nvlvas "Да."
+    nvlvas "И это не обсуждается."
+    nvlvas "Тебе понятно?"
+    nvl clear
+    nvlivt "Ты ща довыёбываешься."
+    nvlivt "Да так довыёбываешься, что я с разбегу под колёса проезжающей машини сигану."
+    nvlivt "И не будет ни меня, ни тебя."
+    nvlivt "Вот и всё блять."
+    nvlivt "Распизделась она тут, видите ли."
+    nvl clear
+    nvlvas "Успокойся."
+    nvl clear
+    nvlbazar "Василиса и Иветта поменялись ролями бля."
+    nvl clear
+    nvlivt "Успокоится?"
+    nvlivt "А, может, ты просто на хуй пойдёшь?"
+    nvlivt "Заебала, в натуре."
+    nvl clear
+    nvlivt "Всё ей не нравится."
+    nvlivt "Пыталась решить вопрос с гопниками в лагере - опять не так."
+    nvlivt "Пыталась решить вопрос с сизо - снова не так бля."
+    nvlivt "Наебенила я этих мудаков - да всё не так блять!"
+    nvl clear
+    nvlivt "Чё?"
+    nvlivt "Скажи, чё тебе не нравится на этот раз?"
+    nvl clear
+    nvlbazar "Василисе не нашлось, что и сказать."
+    nvlbazar "Остаток пути они молча ненавидели друг друга."
+    nvl clear
+    scene labaext with ed_lap
+    nvlbazar "Под утро они таки дошли до офиса."
+    nvlbazar "Недолго поколебавшись, Иветта зашла внутрь."
+    nvl clear
+    play sound door_open
+    scene ineony with ed_lap
+    nn "Здравия."
+    nn "Чем обязан?"
+    ivt1 "Есть проблема."
+    ivt1 "Вы единственный, кто может её решить."
+    nn "И что за проблема такая?"
+    "Неоня немного удивился."
+    "Самую малость."
+    "Но ему льстил подобный базар."
+    ivt1 "Нам нужно разделиться."
+    nn "Нам?"
+    nn "Это кому конкретно?"
+    ivt1 "Мне."
+    ivt "И Мне."
+    nn "Понятно."
+    nn "Собираетесь лечить раздвоение личности нестандартными методами?"
+    ivt1 "Именно."
+    ivt1 "Нам бы тела отдельные."
+    ivt "И Мне бы память подтереть."
+    ivt "Знать её не хочу нахуй."
+
     return
 
-label bergenchikdlc:
+label dlc:
     scene black with ed_night_dis
     play music flowers
     scene bergenbook
