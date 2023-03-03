@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scenario.rpy", line 8560: expected statement.
-    Я осталсь думать, чё же делать дальше?
-                    ^
-
-File "game/scenario.rpy", line 8561: expected statement.
-    Порыскав по комнате, нашла люк.
-                       ^
-
-File "game/scenario.rpy", line 8563: expected statement.
-    Вентиляционная шахта, значит...
-                        ^
+File "game/scenario.rpy", line 9510: end of line expected.
+    th1 "Выбор есть всегда!" wih vpunch
+                             ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sat Feb 25 11:54:24 2023
+Fri Mar  3 19:22:15 2023

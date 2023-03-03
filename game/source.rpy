@@ -62,7 +62,7 @@ init:
 
 ###NAMES
     define skt = Character(u'Дима Скит', color="#008080")
-    define dobby = Character(u'Доберманчик', color="#77dd77")
+    define dobby = Character(u'Доберман', color="#77dd77")
     define th = Character (u' ', color = "#dd9933")
     define cld = Character(u'ColdFSociety', color="#00008b")
     define lxrd = Character(u'deadlylxrd', color="#ffffff")
@@ -449,6 +449,7 @@ init:
     image aw_afd_ky1_3 = "source/aw_afd_ky1_3.png"
     image himori = ("source/himori.png")
     image bg aw_f_cor_1 = "source/aw_f_cor_1.png"
+    image ubratpotomblya = "source/ebanoemenu/menushka_hover.png"
 ###
 
 ###ANIMATIONS
