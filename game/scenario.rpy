@@ -1,20 +1,96 @@
 label start:
     $ persistent.zastavka_skip = True
     play sound maloletka
-    scene menushitfade:
-        xalign 0.5
-        yalign 0.5
-        zoom 1.0
-        parallel:
-            linear 1.0 zoom 1.05
-        parallel:
-            ease 1.0 xalign 0.45
-            ease 1.0 xalign 0.54
-            repeat
-        parallel:
-            ease 1.5 rotate 1.2 zoom 1.07
-            ease 1.5 rotate -1.4 zoom 1.045
-            repeat
+    if persistent.menushka_akt0 is True:
+        scene menushitfade0:
+            xalign 0.5
+            yalign 0.5
+            zoom 1.0
+            parallel:
+                linear 1.0 zoom 1.05
+            parallel:
+                ease 1.0 xalign 0.45
+                ease 1.0 xalign 0.54
+                repeat
+            parallel:
+                ease 1.5 rotate 1.2 zoom 1.07
+                ease 1.5 rotate -1.4 zoom 1.045
+                repeat
+    elif persistent.menushka_akt1 is True:
+        scene menushitfade1:
+            xalign 0.5
+            yalign 0.5
+            zoom 1.0
+            parallel:
+                linear 1.0 zoom 1.05
+            parallel:
+                ease 1.0 xalign 0.45
+                ease 1.0 xalign 0.54
+                repeat
+            parallel:
+                ease 1.5 rotate 1.2 zoom 1.07
+                ease 1.5 rotate -1.4 zoom 1.045
+                repeat
+    elif persistent.menushka_akt2 is True:
+        scene menushitfade2:
+            xalign 0.5
+            yalign 0.5
+            zoom 1.0
+            parallel:
+                linear 1.0 zoom 1.05
+            parallel:
+                ease 1.0 xalign 0.45
+                ease 1.0 xalign 0.54
+                repeat
+            parallel:
+                ease 1.5 rotate 1.2 zoom 1.07
+                ease 1.5 rotate -1.4 zoom 1.045
+                repeat
+    elif persistent.menushka_akt3 is True:
+        scene menushitfade3:
+            xalign 0.5
+            yalign 0.5
+            zoom 1.0
+            parallel:
+                linear 1.0 zoom 1.05
+            parallel:
+                ease 1.0 xalign 0.45
+                ease 1.0 xalign 0.54
+                repeat
+            parallel:
+                ease 1.5 rotate 1.2 zoom 1.07
+                ease 1.5 rotate -1.4 zoom 1.045
+                repeat
+    elif persistent.menushka_akt4 is True:
+        scene menushitfade4:
+            xalign 0.5
+            yalign 0.5
+            zoom 1.0
+            parallel:
+                linear 1.0 zoom 1.05
+            parallel:
+                ease 1.0 xalign 0.45
+                ease 1.0 xalign 0.54
+                repeat
+            parallel:
+                ease 1.5 rotate 1.2 zoom 1.07
+                ease 1.5 rotate -1.4 zoom 1.045
+                repeat
+    else:
+        scene menushitfade:
+            xalign 0.5
+            yalign 0.5
+            zoom 1.0
+            parallel:
+                linear 1.0 zoom 1.05
+            parallel:
+                ease 1.0 xalign 0.45
+                ease 1.0 xalign 0.54
+                repeat
+            parallel:
+                ease 1.5 rotate 1.2 zoom 1.07
+                ease 1.5 rotate -1.4 zoom 1.045
+                repeat
     stop music fadeout 2
     scene black with dissolve2
     pause 0.5
@@ -130,6 +206,20 @@ label scenariogovna:
             jump dlc3
 
 label atkzero:
+    $ persistent.menushka_akt0 = True
+    $ persistent.menushka_akt1 = False
+    $ persistent.menushka_akt2 = False
+    $ persistent.menushka_akt3 = False
+    $ persistent.menushka_akt4 = False
+    $ persistent.menushka_akt5 = False
+    $ persistent.menushka_akt6 = False
+    $ persistent.menushka_akt7 = False
+    $ persistent.menushka_akt8 = False
+    $ persistent.menushka_akt9 = False
+    $ persistent.menushka_akt10 = False
+    $ persistent.menushka_dlc1 = False
+    $ persistent.menushka_dlc2 = False
+    $ persistent.menushka_dlc3 = False
     scene black with ed_night_dis
     play music rad
     scene corridor
@@ -326,7 +416,7 @@ label atkzero:
     "Но поймёт ли он её правильно?"
     "Этот вопрос не даёт её покоя."
     "Ай,{w=0.2} к чёрту!"
-    him "У меня сбежала {b}Ростовская Шахматистка{/b}." with vpunch
+    him "У меня сбежала {b}Шахматистка{/b}." with vpunch
     window hide
     play sound reaction_joke_4
     pause 4
@@ -363,10 +453,23 @@ label atkzero:
     stop music fadeout 5
     show zatemnenie with dissolve2
     $ MND_Chapter("Конец первого картера...")
-    hide zatemnenie with dissolve2
     return
 
 label aktone:
+    $ persistent.menushka_akt0 = False
+    $ persistent.menushka_akt1 = True
+    $ persistent.menushka_akt2 = False
+    $ persistent.menushka_akt3 = False
+    $ persistent.menushka_akt4 = False
+    $ persistent.menushka_akt5 = False
+    $ persistent.menushka_akt6 = False
+    $ persistent.menushka_akt7 = False
+    $ persistent.menushka_akt8 = False
+    $ persistent.menushka_akt9 = False
+    $ persistent.menushka_akt10 = False
+    $ persistent.menushka_dlc1 = False
+    $ persistent.menushka_dlc2 = False
+    $ persistent.menushka_dlc3 = False
     scene black with ed_night_dis
     play music sail
     scene corridor
@@ -1059,7 +1162,8 @@ label aktone:
     show deadlylxrd:
         xpos 0.5 
     stop sound fadeout 1
-    lxrd "Не хочу тебя расстраивать, но..."
+    lxrd "Не хочу тебя расстраивать,{w=0.2} но..."
+    $ renpy.movie_cutscene('source/dobermanchik.webm')
     hide deadlylxrd
     show deadlylxrd:
         default subpixel True 
@@ -1691,8 +1795,8 @@ label aktone:
     window hide
     play sound zaebali
     pause 3
-    scene black with flash
     play sound shelchok
+    scene black with flash
     "Щелчок пальцами."
     "Мир перед глазами погас."
     $ MND_Chapter("Повествование от лица Неони:")
@@ -1768,6 +1872,20 @@ label aktone:
     return
 
 label akttwo:
+    $ persistent.menushka_akt0 = False
+    $ persistent.menushka_akt1 = False
+    $ persistent.menushka_akt2 = True
+    $ persistent.menushka_akt3 = False
+    $ persistent.menushka_akt4 = False
+    $ persistent.menushka_akt5 = False
+    $ persistent.menushka_akt6 = False
+    $ persistent.menushka_akt7 = False
+    $ persistent.menushka_akt8 = False
+    $ persistent.menushka_akt9 = False
+    $ persistent.menushka_akt10 = False
+    $ persistent.menushka_dlc1 = False
+    $ persistent.menushka_dlc2 = False
+    $ persistent.menushka_dlc3 = False
     scene black with ed_night_dis
     play music sail fadein 2
     scene zihao with ed_night_dis
@@ -4799,18 +4917,7 @@ label akttwo:
     show dlxrd at right
     show sheped at left
     with pushleft
-    vchn "Ностальгировать и по баянистым местам ходить будем,{w=0.2} или вам больно время дорого?"
-    menu:
-        "Некогда нам" if True:
-            stop music fadeout 5
-            vchn "Коли так,{w=0.2} идём короткой тропой."
-            vchn "Выйдем быстро и вовремя."
-            jump akt1shahtaending
-        "Почему нет?" if True:
-            vchn "Двинули."
-            jump akt1shahtadop
-
-label akt1shahtadop:
+    vchn "Ностальгировать и по баянистым местам ходить будем."
     scene bg int_mine_halt
     show bergennorm
     show dlxrd at right
@@ -4840,9 +4947,6 @@ label akt1shahtadop:
     window hide
     pause 0.5
     vchn "Почти пришли."
-    jump akt1shahtaending
-
-label akt1shahtaending:
     play music jamaikamus fadein 2
     scene bg int_mine_door
     show bergennorm
@@ -5937,7 +6041,7 @@ label akt1shahtaending:
     nvl clear
     nvlbazar "Будьте хорошими малолетками и не срите на парты в школе."
     nvl clear
-    play music zp2_main_l
+    play music zp2main
     scene zihao with ed_night_dis
     zih "Занимательно..."
     zih "Это ж надо такое придумать..."
@@ -5975,15 +6079,29 @@ label akt1shahtaending:
     him "Дело твоё."
     him "Будут ещё новости -{w} сразу к тебе."
     zih "Добро." with vpunch
+    stop music fadeout 7
     play sound door_open
     "И Зихао, проводив Химори,{w=0.2} начал готовится к очередному приёму..."
     zih "Как же меня всё заебало..."
     show zatemnenie with dissolve2
     $ MND_Chapter("Конец второго картера...")
-    hide zatemnenie with dissolve2
     return
 
 label aktthree:
+    $ persistent.menushka_akt0 = False
+    $ persistent.menushka_akt1 = False
+    $ persistent.menushka_akt2 = False
+    $ persistent.menushka_akt3 = True
+    $ persistent.menushka_akt4 = False
+    $ persistent.menushka_akt5 = False
+    $ persistent.menushka_akt6 = False
+    $ persistent.menushka_akt7 = False
+    $ persistent.menushka_akt8 = False
+    $ persistent.menushka_akt9 = False
+    $ persistent.menushka_akt10 = False
+    $ persistent.menushka_dlc1 = False
+    $ persistent.menushka_dlc2 = False
+    $ persistent.menushka_dlc3 = False
     scene black with ed_night_dis
     play music myheroine fadein 2
     scene komnata_seksa with ed_night_dis
@@ -6577,7 +6695,7 @@ label aktthree:
     vchn "Ну,{w=0.2} пошли."
     "Они отправились ко входу в помещение для уеденения."
     play sound door_break
-    scene komnata_seksa with vpunch
+    scene komnata_seksa at aw_master_tryas
     "Василиса проталкивает его в двери,{w=0.2} после чего,{w=0.2} имитируя порыв страсти,{w=0.2} ловко достаёт катетер и гопает ДНК Вечного из поясницы."
     vchn "Ай,{w=0.2} сука!" with vpunch
     "Вечный почувствовал лёгкий укол в поясницу."
@@ -6622,7 +6740,7 @@ label aktthree:
         ypos 1.0 
     window show
     vchn "Юра!" with vpunch
-    vsn "О,{w=0.2} Михон!"
+    vsn "О,{w=0.2} Вечный!"
     vchn "Слушай,{w=0.2} ты не видел тут одну тяночку..."
     vsn "ООО!" with vpunch
     vsn "Поздравляю,{w=0.2} братиш!"
@@ -7881,10 +7999,23 @@ label aktthree:
     "И когда всё это закончится?"
     show zatemnenie with dissolve2
     $ MND_Chapter("Конец третьего картера...")
-    hide zatemnenie with dissolve2
     return
 
 label aktfour:
+    $ persistent.menushka_akt0 = False
+    $ persistent.menushka_akt1 = False
+    $ persistent.menushka_akt2 = False
+    $ persistent.menushka_akt3 = False
+    $ persistent.menushka_akt4 = True
+    $ persistent.menushka_akt5 = False
+    $ persistent.menushka_akt6 = False
+    $ persistent.menushka_akt7 = False
+    $ persistent.menushka_akt8 = False
+    $ persistent.menushka_akt9 = False
+    $ persistent.menushka_akt10 = False
+    $ persistent.menushka_dlc1 = False
+    $ persistent.menushka_dlc2 = False
+    $ persistent.menushka_dlc3 = False
     scene black with ed_night_dis
     play music elli fadein 2
     scene himori with ed_lap
@@ -8753,7 +8884,7 @@ label aktfour:
     show harchok:
         pos (-0.3, 1.0) 
     window show
-    "Казах вытер харочк с ебла."
+    "Казах вытер харчок с ебла."
     nn "Слушай сюда,{w=0.2} блядь." with vpunch
     nn "У тебя нет выбора -{w} послать нас или помочь." with vpunch
     nn "Жизнь твоей {b}<<подруги>>{/b} -{w} в твоих руках." with vpunch
@@ -8810,6 +8941,9 @@ label aktfour:
     scene portal with ed_lap
     "Иветта заглянула в какое-{w=0.2}то странное помещение."
     "Возле странного сооружения была табличка с надписью:{w=0.2} {b}<<Портал в Новошахтинск>>{/b}."
+    "Рядом лежал модифицированный дигл."
+    "На нём была надпись -{w} Дамирке от Вадимки."
+    "Иветта сразу прикарманила ствол."
     th2 "Попробовать войти?"
     th2 "И где этот Новошахтинск..."
     stop music fadeout 6
@@ -8945,7 +9079,7 @@ label aktfour:
     "Вечный остался на кухне один."
     "Делать было нехуй."
     window hide
-    play music mvdep fadein 2
+    play music lonely fadein 2
     pause 2
     "Вечный вспомнил,{w=0.2} что он так и не дочитал дневник."
     "На трезвую голову не пошло."
@@ -9771,7 +9905,7 @@ label aktfour:
     scene black with fade3
     $ renpy.pause(5, hard=True)
     $ renpy.music.set_volume(0.6)
-    play music metro1 fadein 2
+    play music eb fadein 2
     play ambience rain_out fadein 2
     scene nebo
     show doshd
@@ -9833,7 +9967,7 @@ label aktfour:
     nvlivt "Значит,{w=0.2} идём к айгандону?"
     nvlvas "Да хоть сейчас."
     nvl clear
-    nvlbazar "И они отправились в офис {b}iGandone LLC,{/b} который находился неподалёку."
+    nvlbazar "И они отправились в офис {b}iGandone LLC,{/b}{w=0.2} который находился неподалёку."
     nvl clear
     stop ambience fadeout 5
     scene black with ed_night_dis
@@ -9898,7 +10032,331 @@ label aktfour:
     ivt1 "Нам бы тела отдельные."
     ivt "И Мне бы память подтереть."
     ivt "Знать её не хочу нахуй."
-
+    nn "У меня есть идея как вам помочь."
+    nn "Но взамен вы на меня поработаете." with vpunch
+    ivt "И что надо сделать?"
+    nn "После процедуры обсудим."
+    "Василиса понимала,{w=0.2} что это говнистые такие условия,{w=0.2} ведь он может чё угодно попросить сделать."
+    "И хуй потом ты от этого отвертишься."
+    "Но всё уже было решено."
+    ivt "Хорошо."
+    "И они пошли в процедурную."
+    stop music fadeout 8
+    scene laba
+    show kazahspr
+    with ed_lap
+    nn "Может немного подташнивать после процесса."
+    nn "Но это стандартный постэффект."
+    nn "Ложись в эту колбу -{w} остальное я сделаю сам."
+    "Они легли в колбу странного зеленоватого цвета."
+    scene black
+    $ renpy.movie_cutscene('source/cloncrate.webm')
+    play music ly fadein 5
+    $ MND_Chapter("Некоторое время спустя...")
+    scene laba with ed_lap
+    "Неоня сидел и ждал результат."
+    "Это был его первый подобный эксперимент."
+    "От его исхода зависит многое."
+    "Если успех -{w} он теперь может содавать клонов людей и разделять автономные личности."
+    "Энергии на это,{w=0.2} конечно,{w=0.2} масса уходит."
+    "Но в запасе было её дохера."
+    "А если же фейл..." with hpunch
+    "То,{w=0.2} выходит,{w=0.2} он загубил человека."
+    "Будем честны -{w} похуй на человека." with hpunch
+    "Главное -{w} результат."
+    "Стенка колбы начала отъезжать."
+    window hide
+    show vasilisa at center:
+        xcenter -0.4 ycenter 0.5 rotate 0
+        easein 0.4 xcenter 0.5 rotate 360
+        ease 0.05 zoom 1.3
+        ease 0.05 zoom 1.0
+        ease 0.1 rotate -360
+    $ renpy.pause (0.5)
+    hide vasilisa
+    show vasilisa
+    window show
+    "Из колбы в знакомой манере вылетел итог эксперимента."
+    ivt "Получилось!" with hpunch
+    ivt "Что теперь надо сделать?"
+    nn "Поднимись обратно в мой кабинет и жди меня там."
+    nn "Чуть позже дам тебе указания."
+    ivt "Только вот проблема есть{w=0.2}.{w=0.2}.{w=0.2}."
+    ivt "Я ничего не помню." with hpunch
+    "Чёрт."
+    "Не всё прошло гладко."
+    "Хотя -{w} так даже лучше."
+    "Можно будет любой лапши на уши навешать.{w} Доширак."
+    window hide
+    play sound door_open
+    hide vasilisa
+    show vasilisa:
+        default subpixel True 
+        parallel:
+            Null(750.0, 720.0)
+            'vasilisa'
+        parallel:
+            xpos 0.5 
+            linear 0.60 xpos 2.75 
+    with Pause(0.70)
+    show vasilisa:
+        xpos 2.75 
+    window show
+    "Василиса покинула процедурную."
+    "И через пару минут открылась вторая колба."
+    window hide
+    show ivettaspr at center:
+        xcenter -0.4 ycenter 0.5 rotate 0
+        easein 0.4 xcenter 0.5 rotate 360
+        ease 0.05 zoom 1.3
+        ease 0.05 zoom 1.0
+        ease 0.1 rotate -360
+    $ renpy.pause (0.5)
+    hide ivettaspr
+    show ivettaspr
+    window show
+    ivt1 "Получилось!" with hpunch
+    "Не разделяя радости Иветты,{w=0.2} Неоня спросил:"
+    nn "Помнишь что-нибудь?" with hpunch
+    ivt1 "А я должна была что-{w=0.2}то забыть?"
+    ivt1 "Где Василиса кстати?" with hpunch
+    "Чёрт."
+    "А эта -{w} всё помнит."
+    "Где-{w=0.2}то я подобосрался в расчётах{w=0.2}.{w=0.2}.{w=0.2}."
+    "Думал Дамирка."
+    "Ну ничего."
+    "Ещё есть время и ресурсы,{w=0.2} дабы это исправить."
+    ivt1 "Дружище,{w=0.2} ты плохо понял?" with hpunch
+    ivt1 "Где Василиса?" with hpunch
+    "Неоня вышел из раздумий."
+    "Эта ведёт себя очень агрессивно."
+    "Она точно провалит задание."
+    "Хотя попробовать стоит."
+    nn "Ты должна{w=0.2}.{w=0.2}.{w=0.2}.{nw}"
+    ivt1 "Ты ща пиздов получишь,{w=0.2} если не дашь мне инфу." with hpunch
+    ivt1 "Я в последний раз спрашиваю:{w} где Василиса?" with hpunch
+    "Неоня понял,{w=0.2} что пора прекращать баловаться."
+    "Нужно порешить этот вопрос,{w=0.2} пока он не встал боком."
+    window hide
+    play sound shpricz
+    pause 1
+    hide ivettaspr
+    show ivettaspr:
+        anchor (0.5, 0.5)
+        pos (0.5, 0.5)
+        ease 1.0 rotate 150 xpos 0.2 ypos 2.0
+    play sound sfx_body_bump
+    nn "Вот и всё."
+    "Неоня резким движением опустошил шприц с мощным транквилизатором в шею Иветты."
+    "После чего та заснула безмятежным сном."
+    nn "Осталось её только в бункер оттащить."
+    nn "Там она не доставит мне неприятностей."
+    "И Неоня потащил Иветту в бункер."
+    play sound stmetal
+    scene kk with ed_lap
+    "Неоня положил Иветту на кровать."
+    nn "Сладких снов." with hpunch
+    "После чего покинул бункер,{w=0.2} да отправился в свой кабинет,{w=0.2} дабы вешать доширак на уши Василисе."
+    stop music fadeout 5
+    show zatemnenie with dissolve2
+    $ MND_Chapter("От лица Вечного:")
+    hide zatemnenie with dissolve2
+    scene black with ed_night_dis
+    scene domint with ed_earth_draw
+    "Пока Вечный читал эти ахуительные истории,{w=0.2} уже наступило утро."
+    vchn "Ну и что это блять?"
+    play music theorem
+    vas "Тебе действительно так интересно?" with vpunch
+    "И тут Вечный ахуел."
+    "Немного сильно так."
+    "Надо было хоть местами по сторонам поглядвать."
+    vchn "Ладно,{w=0.2} признаю -{w} немного увлёкся."
+    vchn "Но это не отменяет того,{w=0.2} что ты бесконечно всё скрываешь." with hpunch
+    vas "Я хотела рассказать."
+    vas "Просто сейчас не самое подходящее время."
+    vchn "Неподходящее время{w=0.2}.{w=0.2}.{w=0.2}.{w} Ха."
+    vchn "А когда подходящее{w=0.2}-то?" with hpunch
+    vchn "Или ты снова пытаешься выкрутиться?!" with vpunch
+    "Вечный наконец решил развернуться."
+    scene domint
+    show vasilisa
+    with pushleft
+    vchn "А,{w=0.2} БЛЯТЬ?" with vpunch
+    "Ему уже похуй стало -{w} разбудит он Скита или нет."
+    "Нужны были ответы."
+    "И он их получит."
+    "Часть уже получил."
+    "Это из разряда той правды,{w=0.2} которую хочется закопать обратно."
+    "Она грохнулся трёх типов,{w=0.2} двух мусаров,{w=0.2} после чего сбежала."
+    "Это же просто пиздец,{w=0.2} разве нет?"
+    vas "Спокойнее." with hpunch
+    vas "Дабы её вытащить из рук айгандона,{w=0.2} мне нужно выполнить задание."
+    vas "И мы обе станем свободны."
+    vchn "И что же за задание?"
+    vas "Убить Скитецкого." with vpunch
+    window hide
+    play sound reaction_joke_1
+    pause 3
+    vchn "И ты собираешься его грохнуть?"
+    window hide
+    play sound rld
+    skt "Кого убить?" with vpunch
+    vchn "Бля,{w=0.2} Димас,{w=0.2} я тут точно не причём!"
+    "Начал оправдываться Вечный."
+    skt "Не верю я что{w=0.2}-то тебе."
+    stop music fadeout 4
+    vas "Убери ствол." with hpunch
+    vas "Иначе разговора не будет."
+    "Было начала Василиса."
+    "Накал страстей почти достиг своего апогея."
+    "Если бы не финальный штрих."
+    window hide
+    play music digsig
+    play sound door_break
+    show ivettaspr:
+        default subpixel True 
+        parallel:
+            Null(500.0, 842.0)
+            'ivettaspr'
+        parallel:
+            xpos 3.0 
+            linear 0.80 xpos 0.25 
+    with Pause(0.90)
+    show ivettaspr:
+        xpos 0.25 
+    window show
+    ivt1 "ЗДАРОВА,{w=0.2} ЕБАНЬКО!" with vpunch
+    ivt1 "СКОЛЬКО ЛЕТ,{w=0.2} СКОЛЬКО ЗИМ!" with vpunch
+    "В дом залетела Иветта."
+    "С диглом в руке."
+    window hide
+    play sound nday
+    pause 3
+    "Взяв за шею Василису,{w=0.2} она уже было начала выцеливать голову Скита."
+    vchn "СТОЙ,{w=0.2} БЛЯ{nw}" with vpunch
+    window hide
+    stop music
+    play music zp2main
+    play sound introshoot
+    pause 7
+    play sound popalisempai
+    scene black with ed_flash_red
+    play sound2 door_break
+    pause 1
+    scene domint
+    show unblink
+    skt "Плечо,{w=0.2} сука{w=0.2}.{w=0.2}.{w=0.2}." with hpunch
+    "Вечный понял,{w=0.2} что маслина была не для него."
+    "Хотя в глазах всё равно потемнело."
+    scene domint
+    show skitpiohit
+    with pushright
+    "Вечный развернулся и увидел подстреленного Скита."
+    "Свой травматический Макаров он выронил при попадании."
+    "Вечный оккуратно носком ботинка отодвинул его подальше."
+    skt "Чё стоишь,{w=0.2} неси ибупрофен блять!" with hpunch
+    vchn "И где он?"
+    skt "В ящике на кухне.{w} Слева сверху."
+    "И Вечный погнал искать обезбаливающее."
+    show zatemnenie with dissolve2
+    $ MND_Chapter("От лица Неони:")
+    hide zatemnenie with dissolve2
+    scene black with ed_night_dis
+    scene laba
+    show deadlylxrd
+    with ed_lap
+    nn "Братиш,{w=0.2} у нас проблемы." with hpunch
+    lxrd "Что за проблемы?"
+    nn "Иветта сбежала." with vpunch
+    lxrd "Та,{w=0.2} которая маньячка?"
+    nn "Да." with vpunch
+    lxrd "Пиздец."
+    lxrd "Чё делать?"
+    nn "Я думаю,{w=0.2} можно забить хуй."
+    nn "Они для нас опасности не представляют."
+    nn "Ты кста мой дигл именной не видел?"
+    lxrd "Кхм." with vpunch
+    lxrd "Я могу только предположить,{w=0.2} где он теперь."
+    nn "Блять."
+    nn "А вот это уже опасно."
+    lxrd "Ладно,{w=0.2} что{w=0.2}-нибудь придумаем потом."
+    lxrd "Я связался с той самой {b}<<Тёмной лошадкой>>{/b}."
+    nn "И чё,{w=0.2} как?"
+    lxrd "Да никак." with hpunch
+    lxrd "Он отложил встречу."
+    lxrd "Ща дела у него какие{w=0.2}-то важные."
+    nn "Понятно."
+    nn "Продинамили тебя,{w=0.2} Вадимка." with hpunch
+    nn "Причём уже который раз."
+    lxrd "На следующий точно всё получится."
+    lxrd "Ну а пока я займусь обустройством жилого комплекса нашего."
+    lxrd "Там нужно пару штрихов добавить и можно жить."
+    nn "Ты про 4 бункера с койками?"
+    lxrd "Их там вроде больше."
+    lxrd "Но я не помню,{w=0.2} на самом деле."
+    lxrd "А так -{w} да,{w=0.2} я про этот комплекс."
+    lxrd "Может быть,{w=0.2} я даже приглашу к нам ещё пару стоящих типов."
+    lxrd "Сотрудников много не бывает."
+    nn "Ну хорошо."
+    nn "Как закончишь -{w} дай знать."
+    lxrd "Добро."
+    window hide
+    play sound door_open
+    hide deadlylxrd
+    show deadlylxrd:
+        default subpixel True 
+        parallel:
+            Null(500.0, 842.0)
+            'deadlylxrd'
+        parallel:
+            xpos 0.5 
+            linear 0.80 xpos 1.25 
+    with Pause(0.90)
+    show deadlylxrd:
+        xpos 1.25 
+    window show
+    "И Вадимка отправился чистить закрома вилкой."
+    "А Неоня остался думать."
+    nn "Иветта сбежала{w=0.2}.{w=0.2}.{w=0.2}."
+    nn "Чё делать{w=0.2}-то бля теперь?" with hpunch
+    stop music fadeout 5
+    window hide
+    show zatemnenie with dissolve2
+    $ MND_Chapter("От лица Василисы:")
+    hide zatemnenie with dissolve2
+    scene black with ed_night_dis
+    play music ser fadein 2
+    ivt "Всё ещё не отпускает..." with dissolve
+    ivt1 "Здарова,{w=0.2} ебанько!" with hpunch
+    "Из темных аналов подсознания всплыла Иветта."
+    ivt "Ага."
+    ivt "И тебе не хворать."
+    ivt1 "А чё темно так?"
+    ivt "Да бля,{w=0.2} долгая история."
+    ivt1 "Я никуда не тороплюсь."
+    ivt "Препарат на мне тестирует." with hpunch
+    ivt "Постэффекты вообще прошли полностью."
+    ivt "Только вот я ещё и теперь тела не чувствую."
+    ivt1 "Жоска." with hpunch
+    ivt1 "Чё делать собираешься?"
+    ivt "Да нихуя." with hpunch
+    ivt "Не остаётся мне ничего."
+    "Василиса потихоньку начала слышать окружение."
+    him "Мы узнали всё что хотели." with hpunch
+    him "В одиночную её."
+    him "Теперь нужно навестить суетолога." with hpunch
+    him "Расколим его тем же методом."
+    ivt "И про кого она говорит?"
+    ivt1 "А хер его знает." with hpunch
+    ivt1 "Очередного шизика пытать скоро будут."
+    ivt "И ведь самое обидное,{w=0.2} что вернулся пока только слух."
+    ivt1 "Будем пока дальше друг друга ненавидеть в пустоте."
+    ivt1 "Если слух вернулся -{w} может,{w=0.2} всё остальное тоже вернётся."
+    ivt "Скоро ли{w=0.2}.{w=0.2}.{w=0.2}."
+    stop music fadeout 4
+    window hide
+    show zatemnenie with dissolve2
+    $ MND_Chapter("Конец четвёртого картера...")
     return
 
 label dlc1:
@@ -10016,7 +10474,7 @@ label dlcone:
     "{w=0.3}.{w=0.3}.{w=0.3}."
     "Хочется спать. "
     shv "БОРИСЬ,{w=0.2} ТВОЮ МАТЬ!" with vpunch
-    vsn "МИХОН!" with vpunch
+    vsn "ВЕЧНЫЙ!" with vpunch
     "Что-то вижу перед глазами{w=0.3}.{w=0.3}.{w=0.3}."
     scene anim_transition_1 with Dissolve(4.0)
     scene anim_transition_2 with Dissolve(4.0)

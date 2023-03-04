@@ -1,3 +1,74 @@
+init python:
+    import math
+    class FireGlowDot(object):
+
+        def __init__(self):
+
+            self.sm = SpriteManager(update=self.update)
+
+            self.glows = [ ]
+            self.rd = "source/firedrop.png"
+
+            d = Transform(self.rd, zoom=0.25)
+            for i in range(0, 50):
+                self.add(d, renpy.random.randint(20, 40))
+
+            d = Transform(self.rd, zoom=0.5)
+            for i in range(0, 50):
+                self.add(d, renpy.random.randint(45, 60))
+
+        def add(self, d, speed):
+            s = self.sm.create(d)
+
+            start = renpy.random.randint(0, 1080)
+            s.x = renpy.random.randint(0, 1920)
+
+            self.glows.append((s, start, speed))
+
+        def update(self, st):
+            for s, start, speed in self.glows:
+                s.y = (start - speed/2 * st) % 1080 - 20
+                s.x = s.x + math.sin(s.y/speed*2)
+
+            return 0
+    renpy.image("ogonek", FireGlowDot().sm)
+
+init python:
+
+    class MndMenuCh(object):
+
+        def __init__(self):
+
+            self.sm = SpriteManager(update=self.update)
+
+            self.glows = [ ]
+            self.rd = "source/chast1.png"
+
+            d = Transform(self.rd, zoom=0.25)
+            for i in range(0, 50):
+                self.add(d, renpy.random.randint(20, 40))
+
+            d = Transform(self.rd, zoom=0.5)
+            for i in range(0, 50):
+                self.add(d, renpy.random.randint(45, 60))
+
+        def add(self, d, speed):
+            s = self.sm.create(d)
+
+            start = renpy.random.randint(0, 1080)
+            s.x = renpy.random.randint(0, 1920)
+
+            self.glows.append((s, start, speed))
+
+        def update(self, st):
+            for s, start, speed in self.glows:
+                s.y = (start - speed/2 * st) % 1080 - 20
+                s.x = s.x + math.sin(s.y/speed*2)
+
+            return 0
+    renpy.image("redpart", MndMenuCh().sm)
+
+
 init:
 
     transform ed_bus_move:
@@ -81,6 +152,18 @@ init:
         pause 4.0
         ease 0.5 pos(-0.8, 0.85)
         ease 0.5 pos(-1.0, 0.85) alpha 0.0
+
+    transform menu_art_move(z, x, z2):
+        subpixel True
+        yoffset 0 + (1200 * z)
+        xoffset (740 - x) * z * 0.5
+        zoom z2 * 0.75
+        time 0.0
+        parallel:
+            ease 1.75 yoffset 0
+        parallel:
+            pause 0.75
+            ease 1.5 zoom z2 xoffset 0
 
     transform ed_running_fast:
         truecenter

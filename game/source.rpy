@@ -48,16 +48,33 @@ init:
 ###LABELS BLYA
     default persistent.bazarbig = False
     default persistent.zastavka_skip = False
+
     $ poroshok_zauzal = False
     $ pomacal_stvoli = False
     $ popil_malisha = False
     $ vsem_pizda = False
+
+    $ menushka_akt0 = False
+    $ menushka_akt1 = False
+    $ menushka_akt2 = False
+    $ menushka_akt3 = False
+    $ menushka_akt4 = False
+    $ menushka_akt5 = False
+    $ menushka_akt6 = False
+    $ menushka_akt7 = False
+    $ menushka_akt8 = False
+    $ menushka_akt9 = False
+    $ menushka_akt10 = False
+    $ menushka_dlc1 = False
+    $ menushka_dlc2 = False
+    $ menushka_dlc3 = False
 ###VIDEOSOS
     image menushka = Movie(fps=24, size = (1280, 720), play="source/menushka.webm")
     image burnint = Movie(play="source/burnint.ogv")
     image roofburn = Movie(play="source/roofburn.ogv")
     image squareanim = Movie(play="source/Everlasting Evening - (Wallpaper Engine).ogv")
     image bunkerson = Movie(play="source/bunker.ogv")
+    image menushka1 = Movie(fps=24, size = (1280, 720), play="source/menushka1.ogv")
 ###
 
 ###NAMES
@@ -210,9 +227,20 @@ init:
     image dristun = Image("source/dristun.webp")
     image morozovcover = Image("source/morozovcover.webp")
     image menushitfade = Image("source/menushitfade.webp")
-    image menushitfadess = Image("source/menushitfadess.webp")
-    image menushitfadedd = Image("source/menushitfadedd.webp")
-    image menushitfadebe = Image("source/menushitfadebe.webp")
+    image menushitfade0 = Image("source/menushitfade0.png")
+    image menushitfade1 = Image("source/menushitfade1.png")
+    image menushitfade2 = Image("source/menushitfade2.png")
+    image menushitfade3 = Image("source/menushitfade3.png")
+    image menushitfade4 = Image("source/menushitfade4.png")
+    image menushitfade5 = Image("source/menushitfade5.png")
+    image menushitfade6 = Image("source/menushitfade6.png")
+    image menushitfade7 = Image("source/menushitfade7.png")
+    image menushitfade8 = Image("source/menushitfade8.png")
+    image menushitfade9 = Image("source/menushitfade9.png")
+    image menushitfade10 = Image("source/menushitfade10.png")
+    image menushitfadedlc1 = Image("source/menushitfadedcl1.png")
+    image menushitfadedlc2 = Image("source/menushitfadedlc2.png")
+    image menushitfadedlc3 = Image("source/menushitfadedlc3.png")
     image overlaymenushki = Image("source/overlaymenushki.webp")
     image novoshahtinsk = Image("source/1.webp")
     image hataneonydisk = Image("source/hataneonydisk.webp")
@@ -450,6 +478,13 @@ init:
     image himori = ("source/himori.png")
     image bg aw_f_cor_1 = "source/aw_f_cor_1.png"
     image ubratpotomblya = "source/ebanoemenu/menushka_hover.png"
+    image bergenokno = "source/bergenokno.webp"
+    image bergenokno1 = "source/bergenokno1.webp"
+    image et_road_dark = "source/et_road_dark.webp"
+    image bg int_liaz = "source/int_liaz.webp"
+    image int_liaz1 = "source/int_liaz1.webp"
+    image ivettaspr = im.MatrixColor("source/ivettaspr.png", im.matrix.tint(0.94, 0.82, 1.0))
+    image skitpiohit = im.MatrixColor("source/skitpiohit.png", im.matrix.tint(0.94, 0.82, 1.0))
 ###
 
 ###ANIMATIONS
@@ -1119,3 +1154,76 @@ init:
         'source/trip3MVWWW777.webp' with dissolve
         pause (0.5)
         repeat
+
+    image menu_art_sheped:
+        subpixel True
+        "source/ebanoemenu/sheped.webp"
+        xcenter 750
+        ycenter 385
+        zoom 0.58
+        menu_art_move(0.58, 750, 0.58)
+
+    image menu_art_skit:
+        subpixel True
+        "source/ebanoemenu/skit1.webp"
+        xcenter 600
+        ycenter 465
+        zoom 0.60
+        menu_art_move(0.54, 600, 0.60)
+
+    image menu_art_osemenitel:
+        subpixel True
+        "source/ebanoemenu/osemenitel3000.webp"
+        xcenter 450
+        ycenter 465
+        zoom 0.60
+        menu_art_move(0.54, 600, 0.60)
+
+    image menu_art_vladislave:
+        subpixel True
+        "source/ebanoemenu/vladick1.webp"
+        xcenter 900
+        ycenter 525
+        zoom 0.58
+        menu_art_move(0.58, 750, 0.58)
+
+
+    image menu_art_kost:
+        subpixel True
+        "source/ebanoemenu/avelime.webp"
+        xcenter 750
+        ycenter 585
+        zoom 0.58
+        menu_art_move(0.58, 750, 0.58)
+
+    image menu_art_semenyak:
+        subpixel True
+        "source/ebanoemenu/spit.webp"
+        xcenter 510
+        ycenter 500
+        zoom 0.68
+        menu_art_move(0.68, 510, 0.68)
+
+    image menu_art_vladick:
+        subpixel True
+        "source/ebanoemenu/kazahsuka.webp"
+        xcenter 1080
+        ycenter 640
+        zoom 1.00
+        menu_art_move(1.00, 1000, 1.00)
+
+    image menu_art_china:
+        subpixel True
+        "source/ebanoemenu/huesoskostya.webp"
+        xcenter 1080
+        ycenter 180
+        zoom 1.00
+        menu_art_move(1.00, 1000, 1.00)
+
+    image menu_art_bergen:
+        subpixel True
+        "source/ebanoemenu/bergensprite.webp"
+        xcenter 975
+        ycenter 335
+        zoom 0.60
+        menu_art_move(0.54, 600, 0.60)
