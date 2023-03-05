@@ -256,14 +256,14 @@ screen main_menu:
 
     imagemap:
         auto "source/ebanoemenu/menushka_%s.png"
-        hotspot (40,212,227,51) clicked Start() hovered Play("test_one", "source/ebanko.ogg")
-        hotspot (50,280,206,46) clicked ShowMenu('load') hovered Play("test_two", "source/prosnulsa2.ogg")
-        hotspot (63,342,183,44) clicked ShowMenu('preferences') hovered Play("test_three", "source/ahuel.ogg")
-        hotspot (99,404,105,42) clicked ShowMenu('infa') hovered Play("test_five", "source/deti.ogg")
-        hotspot (69,462,169,46) clicked ShowMenu('quit') hovered Play("test_four", "source/gb.ogg")
+        hotspot (40,212,227,51) clicked Start() hovered Play("test_one", "source/sfx/ebanko.ogg")
+        hotspot (50,280,206,46) clicked ShowMenu('load') hovered Play("test_two", "source/sfx/prosnulsa2.ogg")
+        hotspot (63,342,183,44) clicked ShowMenu('preferences') hovered Play("test_three", "source/sfx/ahuel.ogg")
+        hotspot (99,404,105,42) clicked ShowMenu('infa') hovered Play("test_five", "source/sfx/deti.ogg")
+        hotspot (69,462,169,46) clicked ShowMenu('quit') hovered Play("test_four", "source/sfx/gb.ogg")
 
-    button style "gitbut" pos (0.93,0.01) action OpenURL("http://github.com/b3rg3n") hovered Play("test_six", "source/wapdomik.ogg")
-    button style "tgbut" pos (0.93,0.15) action OpenURL("http://t.me/b3rg3n") hovered Play("test_seven", "source/tgskt.ogg")
+    button style "gitbut" pos (0.93,0.01) action OpenURL("http://github.com/b3rg3n") hovered Play("test_six", "source/sfx/wapdomik.ogg")
+    button style "tgbut" pos (0.93,0.15) action OpenURL("http://t.me/b3rg3n") hovered Play("test_seven", "source/sfx/tgskt.ogg")
 
 init -1001 python:
     translation=translation_ru
@@ -535,15 +535,15 @@ screen preferences:
                 text translation_new["Volume"] style "settings_header" xalign 0.5
 
                 grid 2 1 xfill True:
-                    textbutton translation_new["Music_lower"] style "log_button" text_style "settings_text" action Play("sound", "source/ebanko.ogg") xpos 0.1 ypos -0.2
+                    textbutton translation_new["Music_lower"] style "log_button" text_style "settings_text" action Play("sound", "source/sfx/ebanko.ogg") xpos 0.1 ypos -0.2
                     bar value Preference("music volume") left_bar bar_full right_bar bar_null thumb "source/ebanoemenu/htumb.png" hover_thumb "source/ebanoemenu/htumb.png" xmaximum 0.8 ymaximum 3 xpos -0.35
 
                 grid 2 1 xfill True:
-                    textbutton translation_new["Sound"] style "log_button" text_style "settings_text" action Play("sound", "source/ebanko.ogg") xpos 0.1 ypos -0.2
+                    textbutton translation_new["Sound"] style "log_button" text_style "settings_text" action Play("sound", "source/sfx/ebanko.ogg") xpos 0.1 ypos -0.2
                     bar value Preference("sound volume") left_bar bar_full right_bar bar_null thumb "source/ebanoemenu/htumb.png" hover_thumb "source/ebanoemenu/htumb.png" xmaximum 0.8 ymaximum 3 xpos -0.35
 
                 grid 2 1 xfill True:
-                    textbutton translation_new["Ambience"] style "log_button" text_style "settings_text" action Play("sound", "source/ebanko.ogg") xpos 0.1 ypos -0.2
+                    textbutton translation_new["Ambience"] style "log_button" text_style "settings_text" action Play("sound", "source/sfx/ebanko.ogg") xpos 0.1 ypos -0.2
                     bar value Preference("voice volume") left_bar bar_full right_bar bar_null thumb "source/ebanoemenu/htumb.png" hover_thumb "source/ebanoemenu/htumb.png" xmaximum 0.8 ymaximum 3 xpos -0.35
 
                 text translation_new["Text_speed"] style "settings_header" xalign 0.5
