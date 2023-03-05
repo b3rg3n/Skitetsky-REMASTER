@@ -247,6 +247,9 @@ init python:
     style.log_button_text.selected_color = "#b6ff00"
     style.log_button_text.hover_color = "#b6ff00"
 
+    style.log_button_text_edit = Style(style.log_button_text)
+    style.log_button_text_edit.size = 50
+
 screen main_menu:
 
 
@@ -316,6 +319,7 @@ init -1002 python:
         "Font" : "Размер базара",
         "Normal_font" : "Обычный",
         "Big_font" : "Сделать больше",
+        "Mods" : "Моды",
 
 }
 
@@ -565,7 +569,11 @@ screen preferences:
                             null width 22
                         textbutton translation_new["Big_font"] style "log_button" text_style "settings_text" action [SetField(persistent,'bazarbig', True)]
 
-                null
+                textbutton translation_new["Mods"]:
+                    style "log_button"
+                    text_style "log_button_text_edit" 
+                    xalign 0.5 
+                    action [Hide("preferences"), ShowMenu("mods")]
 
             bar value XScrollValue("preferences") left_bar "source/none.png" right_bar "source/none.png" thumb "source/none.png" hover_thumb "source/none.png"
             vbar value YScrollValue("preferences") bottom_bar "source/none.png" top_bar "source/none.png" thumb "source/ebanoemenu/vthumb.png" thumb_offset -12
