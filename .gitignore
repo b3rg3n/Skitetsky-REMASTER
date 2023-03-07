@@ -2,6 +2,7 @@
 game/cache/
 game/saves/
 game/tl/
+game/renpy-ActionEditor3-master/
 *.rpyc
 *.rpyb
 *.rpym
