@@ -3,7 +3,7 @@ A RenPy Game of Skittels15
 
 Language of game - russian.
 
-Will be compiled with RenPy 4.7.11
+Will be compiled with RenPy 7.4.11
 
 Ремастер моего самого успешного проекта.
 
