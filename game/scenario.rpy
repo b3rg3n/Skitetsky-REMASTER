@@ -390,6 +390,9 @@ label atkzero:
     zih "Как вам будет угодно."
     zih "Юра,{w=0.2} Джозеф -{w} сопроводите этого господина."
     "И два амбала по два метра каждый вытолкали Вечного в коррридор."
+    show zatemnenie with dissolve2
+    $ MND_Chapter("От лица Зихао:")
+    hide zatemnenie with dissolve2
     window hide
     pause 1
     play music lovewooman1 fadein 2
@@ -3954,7 +3957,7 @@ label akttwo:
     th "Сколько модов было мной пройдено..."
     window hide
     pause 1
-    th "БвС, Пацанское лето, 7ДЛ, Саманта, прочий треш..."
+    th "БвС,{w=0.2} Пацанское лето,{w=0.2} 7ДЛ,{w=0.2} Саманта,{w=0.2} прочий треш..."
     th "Но это не главное..."
     window hide
     pause 1

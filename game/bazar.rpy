@@ -2,6 +2,69 @@ init -2 python:
 
     renpy.display.screen.screens[("say_old", None)] = renpy.display.screen.screens[("say", None)]
 
+screen say(who, what):
+    style_prefix "say"
+
+    imagebutton:
+        auto "source/dialogue_box/backward_%s.png"
+        xpos 25
+        ypos 616
+        action Rollback()
+    add "source/dialogue_box/dialogue_box_large.png":
+        xpos 116
+        ypos 577
+    imagebutton:
+        auto "source/dialogue_box/hide_%s.png"
+        xpos 1005
+        ypos 589
+        action HideInterface()
+    imagebutton:
+        auto "source/dialogue_box/save_%s.png"
+        xpos 1045
+        ypos 589
+        action ShowMenu('save')
+    imagebutton:
+        auto "source/dialogue_box/menu_%s.png"
+        xpos 1084
+        ypos 589
+        action ShowMenu('preferences')
+    imagebutton:
+        auto "source/dialogue_box/load_%s.png"
+        xpos 1122
+        ypos 589
+        action ShowMenu('load')
+    if not config.skipping:
+        imagebutton:
+            auto "source/dialogue_box/forward_%s.png"
+            xpos 1179
+            ypos 616
+            action Skip()
+    else:
+        imagebutton:
+            auto "source/dialogue_box/fast_forward_%s.png"
+            xpos 1179
+            ypos 616
+            action Skip()
+    text what:
+        id "what"
+        xpos 129
+        ypos 609
+        xmaximum 1027
+        size 23
+        line_spacing 1
+    if who:
+        text who:
+            id "who"
+            xpos 129
+            ypos 595
+            size 23
+            line_spacing 1
+
+    if not renpy.variant("small"):
+        add SideImage() xalign 0.0 yalign 1.0
+
+
+
 screen say_big(who, what):
     style_prefix "say"
 
