@@ -175,10 +175,11 @@ label splashscreen:
             _preferences.volumes['music'] = .65
             _preferences.volumes['sfx'] = 1.0
             _preferences.volumes['voice'] = .65
-    if persistent.zastavka_skip is True:
-        jump splashcreen3
-    else:
-        jump spashcreen1
+    jump splashblya
+#    if persistent.zastavka_skip is True:
+#        jump splashcreen3
+#    else:
+#        jump spashcreen1
 
 label spashcreen1:
     scene black with dissolve2
@@ -207,6 +208,47 @@ label splashscreen2:
     $ renpy.pause(5, hard=True)
     $ persistent.zastavka_skip = True
     jump splashcreen3
+
+label splashblya:
+    play music kotik fadein 2
+    scene disknew
+    show redpart
+    with Fade(1.5, 1, 2)
+    $ renpy.pause (1.0, hard=True)
+    show text "{font=[splash_font]}{color=#FFFFFF}{size=47}Запрещено для детей. {/size}{size=30}*смеётся*{/size}\n{size=47}BERGEN не хотел никого оскорбить.\n{/size}{size=30}Правда?{/font}{/color}{/size}" with dissolve2:
+        anchor (0.5, 0.5)
+        xalign 0.5
+        yalign 0.5
+    $ renpy.pause (1.1, hard=True)
+    show gui load_icon_br at br_rotate(1.0, 0.7, 0.5, 1.0) with dspr
+    $ renpy.pause (6.66, hard=True)
+    hide text with dissolve2
+    $ renpy.pause (1.1, hard=True)
+    show text "{font=[splash_font]}{color=#FFFFFF}{size=47}В игре имеется нецензурная лексика.{/font}{/color}{/size}" with dissolve2:
+        anchor (0.5, 0.5)
+        xalign 0.5
+        yalign 0.5
+    $ renpy.pause (6.66, hard=True)
+    hide text with dissolve2
+    $ renpy.pause (1.1, hard=True)
+    show text "{font=[splash_font]}{color=#FFFFFF}{size=47}Настоятельно рекомендуется играть в наушниках.{/size}\n{size=30}Всё для лучшего погружения.{/font}{/color}{/size}" with dissolve2:
+        anchor (0.5, 0.5)
+        xalign 0.5
+        yalign 0.5
+    $ renpy.pause (6.66, hard=True)
+    hide text with dissolve2
+    $ renpy.pause (1.1, hard=True)
+    show text "{font=[splash_font]}{color=#FFFFFF}{size=47}Приятного проходения.{/size}{/font}{/color}" with dissolve2:
+        anchor (0.5, 0.5)
+        xalign 0.5
+        yalign 0.5
+    $ renpy.pause (6.66, hard=True)
+    hide text with dissolve2
+    $ renpy.pause (1.1, hard=True)
+    stop music fadeout 3
+    scene black with dissolve2
+    $ renpy.pause (1.1, hard=True)
+    return
 
 label splashcreen3:
     $ renpy.movie_cutscene('source/videosos/zastavkaremaster.webm')

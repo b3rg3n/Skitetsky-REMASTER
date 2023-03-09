@@ -35,6 +35,12 @@ init:
     define awspot = ImageDissolve("source/aw_eff_spot.webp", 3.5, 60, reverse=True)
     define awspot2 = ImageDissolve("source/aw_eff_spot.webp", 3.5, 60, reverse=False)
     define awnoose = ImageDissolve("source/aw_noose.webp", 3.5, 60, reverse=True)
+    image gui load_icon_br = "source/load_icon.webp"
+
+    image disknew:
+        im.Blur("source/nvnight.webp", 1.05)
+        pause 6.1
+        repeat
 
     image aw_afd_ky1:
         contains:

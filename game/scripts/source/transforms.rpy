@@ -71,6 +71,12 @@ init python:
 
 init:
 
+    transform br_rotate(l, z, x, y):
+        parallel:
+            zoom z xalign x yalign y rotate_pad True rotate 0
+            linear l rotate 360
+            repeat
+
     transform ec_tr_choice:
         on hover:
             easein 0.1 yoffset -2

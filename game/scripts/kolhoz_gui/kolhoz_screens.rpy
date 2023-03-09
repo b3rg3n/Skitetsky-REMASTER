@@ -18,6 +18,7 @@ init python:
     header_font = "source/fonts/3.otf"
     link_font = "source/fonts/3.otf"
     info_font = "source/fonts/2.ttf"
+    splash_font = "source/fonts/3.otf"
 
 #Styles Text
     style.file_picker_text = Style(style.default)
