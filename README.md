@@ -1,7 +1,7 @@
 # Skitetsky REMASTER
 
-![скитпахом](https://user-images.githubusercontent.com/124900745/224049306-015f7e3d-00da-4f6e-b652-a7cf40c8a4c0.jpg)
-
+![залупа блят1ь](https://user-images.githubusercontent.com/124900745/224069668-152a38cc-4342-49d3-b8f0-2f4597e0cecf.png)
+<h1 align="center">
 Грустная сказка для взрослых.
 Однако, прочтут её, как обычно - дети.
 
@@ -17,4 +17,4 @@
 - Самопальный GUI kolhoz style
 - Возможно, добавлю чёта ещё
 
-(C) Skeet Dynasty 2023
+(C) Skeet Dynasty 2023</h1>
