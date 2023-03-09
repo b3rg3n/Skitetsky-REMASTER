@@ -1,3 +1,6 @@
+python early:
+    config.allow_duplicate_labels = True
+
 init -1000 python:
 
     import os.path
