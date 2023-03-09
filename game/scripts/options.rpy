@@ -242,3 +242,6 @@ define config.gestures = { "n" : "game_menu",
                            "s" : "hide_windows"}
 init -1700 python:
     _game_menu_screen = "save"
+
+init -999:
+    $ create_mods_directory()

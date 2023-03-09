@@ -23,3 +23,4 @@ label test_mod:
     scene black with fade3
     pause 0.5
     return
+
