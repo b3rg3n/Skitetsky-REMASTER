@@ -1,5 +1,4 @@
 # Skitetsky REMASTER
-A RenPy Game of Skittels15
 
 Ремастер моего самого успешного проекта.
 
