@@ -1,5 +1,3 @@
-# Skitetsky REMASTER
-
 ![залупа блят1ь](https://user-images.githubusercontent.com/124900745/224069668-152a38cc-4342-49d3-b8f0-2f4597e0cecf.png)
 <h1 align="center">
 Грустная сказка для взрослых.
