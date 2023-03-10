@@ -37,6 +37,117 @@ init:
     define awnoose = ImageDissolve("source/aw_noose.webp", 3.5, 60, reverse=True)
     image gui load_icon_br = "source/load_icon.webp"
 
+    image overlay psy_pizdos:
+        contains:
+            choice:
+                "himori"
+            choice:
+                "kk"
+            choice:
+                "zaborskit3"
+            choice:
+                "domext"
+            choice:
+                "domintnight"
+            choice:
+                "dristun"
+            choice:
+                "morozovcover"
+            choice:
+                "comedysheped"
+            choice:
+                "skitscary"
+            choice:
+                "novomall"
+            pause 0.05
+            repeat
+        contains:
+            choice:
+                "himori"
+            choice:
+                "kk"
+            choice:
+                "zaborskit3"
+            choice:
+                "domext"
+            choice:
+                "domintnight"
+            choice:
+                "dristun"
+            choice:
+                "morozovcover"
+            choice:
+                "comedysheped"
+            choice:
+                "skitscary"
+            choice:
+                "novomall"
+            pause 0.05
+            repeat
+        contains:
+            choice:
+                "himori"
+            choice:
+                "kk"
+            choice:
+                "zaborskit3"
+            choice:
+                "domext"
+            choice:
+                "domintnight"
+            choice:
+                "dristun"
+            choice:
+                "morozovcover"
+            choice:
+                "comedysheped"
+            choice:
+                "skitscary"
+            choice:
+                "novomall"
+            pause 0.05
+            repeat
+
+    image noise:
+        truecenter
+        "source/noise1.webp"
+        pause 0.1
+        "source/noise2.webp"
+        pause 0.1
+        "source/noise3.webp"
+        pause 0.1
+        "source/noise4.webp"
+        pause 0.1
+        xzoom -1
+        "source/noise1.webp"
+        pause 0.1
+        "source/noise2.webp"
+        pause 0.1
+        "source/noise3.webp"
+        pause 0.1
+        "source/noise4.webp"
+        pause 0.1
+        yzoom -1
+        "source/noise1.webp"
+        pause 0.1
+        "source/noise2.webp"
+        pause 0.1
+        "source/noise3.webp"
+        pause 0.1
+        "source/noise4.webp"
+        pause 0.1
+        xzoom 1
+        "source/noise1.webp"
+        pause 0.1
+        "source/noise2.webp"
+        pause 0.1
+        "source/noise3.webp"
+        pause 0.1
+        "source/noise4.webp"
+        pause 0.1
+        yzoom 1
+        repeat
+
     image disknew:
         im.Blur("source/nvnight.webp", 1.05)
         pause 6.1

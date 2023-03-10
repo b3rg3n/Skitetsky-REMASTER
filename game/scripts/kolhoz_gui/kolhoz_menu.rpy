@@ -8,7 +8,8 @@ label main_menu:
     window hide
     if persistent.menushka_akt1 is True:
         play music pizda_menushke fadein 2
-        scene menushka
+        scene black
+        show noise
         with Fade(1.5, 1, 2)
         call screen pizda_polnaya
     else:

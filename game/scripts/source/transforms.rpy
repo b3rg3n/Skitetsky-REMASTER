@@ -71,6 +71,14 @@ init python:
 
 init:
 
+    transform noise_alpha:
+        alpha 0.25
+
+    transform noisefade(t=0):
+        alpha 0.0
+        t
+        linear 5.0 alpha 0.40
+
     transform br_rotate(l, z, x, y):
         parallel:
             zoom z xalign x yalign y rotate_pad True rotate 0
