@@ -214,11 +214,11 @@ screen pizda_polnaya:
 
     imagemap:
         auto "source/ebanoemenu/menushka1_%s.webp"
-        hotspot (40,212,227,51) clicked Start() hovered Play("test_one", "source/sfx/ebanko1.ogg")
-        hotspot (50,280,206,46) clicked ShowMenu('load') hovered Play("test_two", "source/sfx/pizda1.ogg")
-        hotspot (63,342,183,44) clicked ShowMenu('preferences') hovered Play("test_three", "source/sfx/ahuel1.ogg")
-        hotspot (99,404,105,42) clicked ShowMenu('infa') hovered Play("test_five", "source/sfx/deti1.ogg")
-        hotspot (69,462,169,46) clicked ShowMenu('quit') hovered Play("test_four", "source/sfx/gb1.ogg")
+        hotspot (53,155,189,23) clicked Start() hovered Play("test_one", "source/sfx/ebanko1.ogg")
+        hotspot (53,223,155,24) clicked ShowMenu('load') hovered Play("test_two", "source/sfx/pizda1.ogg")
+        hotspot (53,294,135,21) clicked ShowMenu('preferences') hovered Play("test_three", "source/sfx/ahuel1.ogg")
+        hotspot (53,363,68,22) clicked ShowMenu('infa') hovered Play("test_five", "source/sfx/deti1.ogg")
+        hotspot (53,432,119,22) clicked ShowMenu('quit') hovered Play("test_four", "source/sfx/gb1.ogg")
 
     button style "gitbut1" pos (0.93,0.01) action OpenURL("http://github.com/b3rg3n") hovered Play("test_six", "source/sfx/wapdomik1.ogg")
     button style "tgbut1" pos (0.93,0.15) action OpenURL("http://t.me/b3rg3n") hovered Play("test_seven", "source/sfx/tgskt1.ogg")
