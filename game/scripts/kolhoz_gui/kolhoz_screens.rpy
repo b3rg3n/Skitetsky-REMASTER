@@ -211,20 +211,6 @@ screen main_menu:
     button style "gitbut" pos (0.93,0.01) action OpenURL("http://github.com/b3rg3n") hovered Play("test_six", "source/sfx/wapdomik.ogg")
     button style "tgbut" pos (0.93,0.15) action OpenURL("http://t.me/b3rg3n") hovered Play("test_seven", "source/sfx/tgskt.ogg")
 
-screen pizda_polnaya:
-
-    modal True tag menu
-
-    imagemap:
-        auto "source/ebanoemenu/menushka1_%s.webp"
-        hotspot (53,155,189,23) clicked Start() hovered Play("test_one", "source/sfx/ebanko1.ogg")
-        hotspot (53,223,155,24) clicked Start() hovered Play("test_two", "source/sfx/pizda1.ogg")
-        hotspot (53,294,135,21) clicked Start() hovered Play("test_three", "source/sfx/ahuel1.ogg")
-        hotspot (53,363,68,22) clicked Start() hovered Play("test_five", "source/sfx/deti1.ogg")
-        hotspot (53,432,119,22) clicked Start() hovered Play("test_four", "source/sfx/gb1.ogg")
-
-
-
 #Screens - Out
 init python:
     def force_quit():

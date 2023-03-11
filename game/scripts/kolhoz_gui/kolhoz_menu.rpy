@@ -1,4 +1,4 @@
-# Skitetsky Remaster Splash & Menu Changer
+# Skitetsky Remaster Splash & Menu
 # by @b3rg3n
 # (C) Skeet Dynasty 2023
 
@@ -6,19 +6,12 @@ label main_menu:
     stop sound fadeout 3
     stop music fadeout 3
     window hide
-    if persistent.menushka_akt1 is True:
-        play music pizda_menushke fadein 2
-        scene black
-        show noise
-        with Fade(1.5, 1, 2)
-        call screen pizda_polnaya
-    else:
-        play music pizdec fadein 2
-        scene menushka
-        show overlaymenushki
-        show versiya
-        with Fade(1.5, 1, 2)
-        call screen main_menu
+    play music pizdec fadein 2
+    scene menushka
+    show overlaymenushki
+    show versiya
+    with Fade(1.5, 1, 2)
+    call screen main_menu
 
 label splashscreen:
 
